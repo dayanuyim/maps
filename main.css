@@ -312,3 +312,14 @@ html, body {
 .wpt-name {
     font-weight: bold;
 }
+
+.sym-license {
+    color: gray;
+    font-size: x-small;
+}
+.sym-license a:link{
+    color: gray;
+}
+.sym-license a:visited{
+    color: gray;
+}
