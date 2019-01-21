@@ -300,6 +300,7 @@ html, body {
     margin-left: -11px;
 }
 .ol-popup-closer {
+    display: none;
     text-decoration: none;
     position: absolute;
     top: 2px;
@@ -309,7 +310,7 @@ html, body {
     content: "\2716";
 }
 
-.wpt-name {
+.pt-name {
     font-weight: bold;
 }
 
