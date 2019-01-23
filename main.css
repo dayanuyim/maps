@@ -314,6 +314,18 @@ html, body {
     font-weight: bold;
 }
 
+.pt-coord-title, .pt-ele-title {
+    font-weight: bold;
+    width: 4em;
+    display: inline-block;
+}
+
+.pt-coord > div, .pt-ele > div{
+    color: gray;
+    font-size: 90%;
+    margin: 2px 0;
+}
+
 .sym-license {
     color: gray;
     font-size: x-small;
