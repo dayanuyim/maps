@@ -339,6 +339,10 @@ select::-ms-expand {
     font-size: 95%;
 }
 
+.pt-coord-title:hover{
+    cursor: pointer;
+}
+
 .pt-coord-val{
     font-size: 90%;
     display: none;
