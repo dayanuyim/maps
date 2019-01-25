@@ -311,15 +311,6 @@ html, body {
     content: "\2716";
 }
 
-.pt-name {
-    font-weight: bold;
-}
-
-.pt-coord{
-    color: gray;
-    margin: 2px 0;
-}
-
 select, option {
     -webkit-appearance: none; /* WebKit/Chromium */
     -moz-appearance: none; /* Gecko */
@@ -329,27 +320,31 @@ select::-ms-expand {
     display: none;
 }
 
-.pt-coord-title{
-    display: inline-block;
+.pt-name {
+    font-weight: bold;
+}
+
+.pt-coord, .pt-ele, .pt-time{
+    color: gray;
+    margin: 2px 0;
+    font-size: 90%;
+}
+
+.pt-coord-title, .pt-ele-title, .pt-time-title{
     width: 60px;
+    font-weight: 500;
     text-align: right;
+    display: inline-block;
+}
+
+.pt-coord-title{
     border: 0px;
     color: gray;
-    font-weight: 500;
     font-size: 95%;
 }
 
 .pt-coord-title:hover{
     cursor: pointer;
-}
-
-.pt-coord-val{
-    font-size: 90%;
-    display: none;
-}
-
-.pt-coord-val-active{
-    display: inline;
 }
 
 .pt-gmap img {
@@ -358,18 +353,6 @@ select::-ms-expand {
     border: 0;
 }
 
-.pt-ele{
-    color: gray;
-    font-size: 90%;
-    margin: 2px 0;
-}
-
-.pt-ele-title {
-    text-align: right;
-    width: 60px;
-    font-weight: 500;
-    display: inline-block;
-}
 
 .sym-license {
     color: gray;
