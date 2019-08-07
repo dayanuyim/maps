@@ -255,6 +255,10 @@ html, body {
     height: 100%;
 }
 
+.tooltip-inner {
+    white-space: nowrap;
+}
+
 .ol-map-container {
     position: absolute;
     top: 0;
@@ -264,6 +268,15 @@ html, body {
 
 .ol-scale-line {
     left: 50%;
+}
+
+.save-cookie {
+    top: 284px;
+    left: .5em;
+}
+
+.ol-touch .save-cookie {
+    top: 80px;
 }
 
 .ol-popup {
