@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx creator="GisEditor" version="1.1" xmlns="http://www.topografix.com/GPX/1/1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd">
+	<metadata>
+		<link href="http://www.garmin.com">
+			<text>Garmin International</text>
+		</link>
+		<time>2017-06-30T02:44:11Z</time>
+		<bounds maxlat="23.561287997" maxlon="121.058177948" minlat="23.247335767" minlon="120.925584"/>
+	</metadata>
+	<wpt lat="23.247695016" lon="120.985669037">
+		<time>2013-03-02T07:01:42Z</time>
+		<name>001向陽派出所</name>
+		<sym>Police Station</sym>
+		<cmt>001向陽派出所</cmt>
+		<desc>001向陽派出所</desc>
+		<extensions>
+			<gpxx:WaypointExtension xmlns:gpxx="http://www.garmin.com/xmlschemas/GpxExtensions/v3">
+				<gpxx:DisplayMode>SymbolAndName</gpxx:DisplayMode>
+			</gpxx:WaypointExtension>
+		</extensions>
+	</wpt>
+	<wpt lat="23.250932023" lon="120.984604033">
+		<ele>2372.88</ele>
+		<time>2013-03-02T07:01:42Z</time>
+		<name>002向松向陽叉路</name>
+		<sym>Crossing</sym>
+		<cmt>002向松向陽叉路</cmt>
+		<desc>002向松向陽叉路</desc>
+		<extensions>
+			<gpxx:WaypointExtension xmlns:gpxx="http://www.garmin.com/xmlschemas/GpxExtensions/v3">
+				<gpxx:DisplayMode>SymbolAndName</gpxx:DisplayMode>
+			</gpxx:WaypointExtension>
+		</extensions>
+	</wpt>
+	<wpt lat="23.267229041" lon="120.986898998">
+		<ele>3135.92</ele>
+		<name>005 雲杉看天池</name>
+		<sym>Water Source</sym>
+		<cmt>005 雲杉看天池</cmt>
+		<desc>005 雲杉看天池</desc>
+		<extensions>
+			<gpxx:WaypointExtension xmlns:gpxx="http://www.garmin.com/xmlschemas/GpxExtensions/v3">
+				<gpxx:DisplayMode>SymbolAndName</gpxx:DisplayMode>
+			</gpxx:WaypointExtension>
+		</extensions>
+	</wpt>
+</gpx>
