@@ -510,15 +510,12 @@ select::-ms-expand {
 }
 
 
-.sym-copyright {
-    color: gray;
+.sym-copyright ,
+.sym-copyright a:link,
+.sym-copyright a:visited {
+    color: #b0b0b0;
     font-size: x-small;
-}
-.sym-copyright a:link{
-    color: gray;
-}
-.sym-copyright a:visited{
-    color: gray;
+    margin-top: 3px;
 }
 /* Style the tab */
 .tab {
