@@ -297,6 +297,8 @@ html, body {
     display: none;
 }
 
+/* the same with .ol-control button */
+/*
 .ol-button {
     display: block;
     margin: 1px;
@@ -313,6 +315,7 @@ html, body {
     border: none;
     border-radius: 2px;
 }
+*/
 
 /* Remove input[type=number] Arrows/Spinners */
 /* Chrome, Safari, Edge, Opera */
@@ -341,8 +344,12 @@ input[type=number] {
     border-left: solid 1px #f0f0f0;
 }
 
-.settings-ctrl {
-    float: right;
+.settings-ctrl.ol-control {
+    /*float: right;*/
+    /* .ol-control using absolute position */
+    position: absolute;
+    top: .5em;
+    right: .5em;
 }
 
 .settings-main {
@@ -419,6 +426,12 @@ input[type=number] {
     top: 0;
     bottom: 0;
     width: 100%;
+}
+
+.ol-overviewmap
+.ol-overviewmap-map{
+    width: 25vw;
+    height: 25vh;
 }
 
 .ol-scale-line {
