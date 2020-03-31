@@ -325,6 +325,7 @@ input::-webkit-inner-spin-button {
 input[type=number] {
   -moz-appearance:textfield;
 }
+
 /*============ Map List ==================*/
 
 .settings {
@@ -348,16 +349,34 @@ input[type=number] {
     min-width: 250px;
 }
 
+.ly-placeholder {
+    display: inline-block;
+    width: calc(100% - 3px);
+    height: 1.5em;
+    border: 2px dotted gray;
+    /*background: gray;*/
+}
+/*
+.ly-hover {
+    background: #d0d0d0;
+    cursor: grab;
+}
+*/
+
 #layer-grp ul{
     padding: 0;
     margin: 0.5em 0 1em 0;
     list-style-type: none;
 }
+#layer-grp li:hover{
+    background: #e8e8e8;
+    cursor: grab;
+}
 #layer-grp li .ly-checked:checked ~ *{
-    color: #222;
+    color: #202020;
 }
 #layer-grp li .ly-checked ~ *{
-    color: gray;
+    color: #808080;
 }
 
 #layer-grp li .ly-desc {
