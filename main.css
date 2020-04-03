@@ -354,6 +354,8 @@ input[type=number] {
 
 .settings-main {
     min-width: 250px;
+    height: calc(100vh - 1em);
+    overflow-y: auto;
 }
 
 .ly-placeholder {
@@ -372,9 +374,14 @@ input[type=number] {
 
 #layer-grp ul{
     padding: 0;
-    margin: 0.5em 0 1em 0;
+    margin: 0.5em 0 0.5em 0;
     list-style-type: none;
 }
+#layer-grp ul:not(:last-child){
+    border-bottom: solid 1px #ccc;
+    padding-bottom: 0.5em;
+}
+
 #layer-grp li:hover{
     background: #e8e8e8;
     cursor: grab;

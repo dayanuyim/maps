@@ -64,6 +64,42 @@ function sinica_url2(id, fmt='png'){
 
 export default
 [
+    {
+        id: 'GRID_WGS84',
+        legend: true,
+        type: 'grid',
+        url: 'wgs84',
+        desc: 'WGS84經緯度格線(度分秒)',
+        checked: false,
+        opacity: 1.0,
+    },
+    {
+        id: 'GRID_WGS84_NUM',
+        legend: true,
+        type: 'grid',
+        url: 'wgs84-num',
+        desc: 'WGS84經緯度格線(數字)',
+        checked: false,
+        opacity: 1.0,
+    },
+    {
+        id: 'GRID_TWD67',
+        legend: true,
+        type: 'grid',
+        url: 'twd67',
+        desc: 'TWD67二度分帶格線',
+        checked: true,
+        opacity: 1.0,
+    },
+    {
+        id: 'GRID_TWD97',
+        legend: true,
+        type: 'grid',
+        url: 'twd97',
+        desc: 'TWD97二度分帶格線',
+        checked: false,
+        opacity: 1.0,
+    },
     /*
     {
         id: 'COUNTRIES',
