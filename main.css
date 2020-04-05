@@ -329,17 +329,14 @@ input[type=number] {
   -moz-appearance:textfield;
 }
 
-/*============ Map List ==================*/
+/*============ Settings Board ==================*/
 
 .settings {
     position: absolute;
     top: 0;
     right: 0;
-    padding: .5em;
     opacity: 85%;
     z-index: 9;
-    min-width: 2em;
-    height: 100vh;
     background: #f8f8f8;
     border-left: solid 1px #f0f0f0;
 }
@@ -352,10 +349,16 @@ input[type=number] {
     right: .5em;
 }
 
+.settings.collapsed .settings-main{
+    display: none;
+}
+
 .settings-main {
+    padding: .5em;
     min-width: 250px;
-    height: calc(100vh - 1em);
+    height: 100vh;
     overflow-y: auto;
+    box-sizing: border-box;
 }
 
 .ly-placeholder {
@@ -413,20 +416,17 @@ input[type=number] {
     transform: scale(0.8);
 }
 
-/* ---------------------------------------*/
-.settings.collapsed {
-    background: transparent;
-    border-left-width: 0;
-}
-.settings.collapsed .settings-main{
-    display: none;
+/*============ Side Settings ==================*/
+.settings-side {
+    z-index: 9;   /* why need this to prvent being covered by maps? */
+    left: .5em;
+    top: 18em;
 }
 
+.settings-side button:not(.active){
+    background: rgba(64, 64, 64, .5);
+}
 /*============= Map ======================*/
-
-#map{
-    /*margin-left: 100*/
-}
 
 .ol-map-container {
     position: absolute;

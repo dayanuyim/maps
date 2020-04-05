@@ -1,7 +1,7 @@
 /*
-               |- layer-grp.ts
+               |- layer-repo.ts
 layer-conf.js -|
-               |- cookie.ts  <-> settings.ts
+               |- opt.ts  <-> settings.ts
 */
 
 /* 
@@ -60,6 +60,20 @@ function sinica_url(id, fmt='jpeg'){
 
 function sinica_url2(id, fmt='png'){
     return `http://gis.sinica.edu.tw/tileserver/file-exists.php?img=${id}-${fmt}-{z}-{x}-{y}`;
+}
+
+function nlsc(id){
+    return `http://wmts.nlsc.gov.tw/wmts/${id}/default/EPSG:3857/{z}/{y}/{x}`;
+}
+
+function jp_gsi(id, fmt)
+{
+    return `https://cyberjapandata.gsi.go.jp/xyz/${id}/{z}/{x}/{y}.${fmt}`;
+}
+
+function happyman(id){
+    return `http://rs.happyman.idv.tw/map/${id}/{z}/{x}/{y}.png`;
+
 }
 
 export default
@@ -133,15 +147,15 @@ export default
     */
     /* TODO: enable this
     {
-        id: 'HAPPYMAN_GPX',
+        id: 'HM_GPXTRACK',
         legend: true,
         type: 'xyz',
-        url: 'http://rs.happyman.idv.tw/map/gpxtrack/{z}/{x}/{y}.png',
+        url: happyman('gpxtrack'),
         desc: '地圖產生器航跡',
         checked: false,
         opacity: 1.0,
     },
-    */
+    //*/
     {
         id: 'Admin_1930a',
         legend: true,
@@ -170,10 +184,10 @@ export default
         opacity: 1.0,
     },
     {
-        id: 'NLSC_LG',
+        id: 'EMAP2',
         legend: true,
         type: 'xyz',
-        url: 'http://wmts.nlsc.gov.tw/wmts/EMAP2/default/EPSG:3857/{z}/{y}/{x}',
+        url: nlsc('EMAP2'),
         desc: '通用地圖(標誌)',
         checked: true,
         opacity: 1.0,
@@ -184,40 +198,40 @@ export default
         type: 'xyz',
         url: 'http://rudy.tile.basecamp.tw/{z}/{x}/{y}.png',
         //url: 'http://rudy-daily.tile.basecamp.tw/{z}/{x}/{y}.png',
-        //url: 'https://rs.happyman.idv.tw/map/rudy/{z}/{x}/{y}.png',
+        //url: happyman('rudy'),
         desc: '魯地圖',
         checked: true,
         opacity: 1.0,
     },
     {
-        id: 'NLSC',
+        id: 'EMAP5',
         legend: false,
         type: 'xyz',
-        url: 'http://wmts.nlsc.gov.tw/wmts/EMAP5/default/EPSG:3857/{z}/{y}/{x}',
+        url: nlsc('EMAP5'),
         desc: '通用地圖',
         checked: false,
         opacity: 1.0,
     },
     {
-        id: 'NLSC_PHOTO',
+        id: 'NLSC_PHOTO2',
         legend: false,
         type: 'xyz',
-        url: 'http://wmts.nlsc.gov.tw/wmts/PHOTO2/default/EPSG:3857/{z}/{y}/{x}',
+        url: nlsc('PHOTO2'),
         desc: '通用地圖(空照)',
         checked: false,
         opacity: 1.0,
     },
     /* TODO: enable this
     {
-        id: 'ARASI_PHOTO',
+        id: 'HP_ATIS',
         legend: false,
         type: 'xyz',
-        url: 'http://rs.happyman.idv.tw/map/atis/{z}/{x}/{y}.png',
+        url: happyman('atis'),
         desc: '農航所(空照)',
         checked: false,
         opacity: 1.0,
     },
-    */
+    //*/
     {
         id: 'OSM',
         legend: false,
@@ -251,7 +265,7 @@ export default
         id: 'JP_GSI',
         legend: false,
         type: 'xyz',
-        url: 'https://cyberjapandata.gsi.go.jp/xyz/std/{z}/{x}/{y}.png',
+        url: jp_gsi('std', 'png'),
         desc: '日本地理院',
         checked: false,
         opacity: 1.0,
@@ -260,7 +274,7 @@ export default
         id: 'JP_GSI_PHOTO',
         legend: false,
         type: 'xyz',
-        url: 'https://cyberjapandata.gsi.go.jp/xyz/seamlessphoto/{z}/{x}/{y}.jpg',
+        url: jp_gsi('seamlessphoto', 'jpg'),
         desc: '日本地理院(空照)',
         checked: false,
         opacity: 1.0,
