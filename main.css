@@ -357,7 +357,7 @@ input[type=number] {
     padding: .5em;
     min-width: 250px;
     height: 100vh;
-    overflow-y: auto;
+    /*overflow-y: auto;*/
     box-sizing: border-box;
 }
 
@@ -374,6 +374,12 @@ input[type=number] {
     cursor: grab;
 }
 */
+
+#layer-grp{
+    overflow-y: auto;
+    height: calc(100% - 2em);
+    box-sizing: border-box;
+}
 
 #layer-grp ul{
     padding: 0;
