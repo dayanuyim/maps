@@ -124,13 +124,31 @@ export default
         checked: false,
         opacity: 1.0,
     },
-    */
     {
         id: 'TW_COUNTIES',
         legend: true,
         type: 'json',
         url: 'https://raw.githubusercontent.com/dayanuyim/trekkr/master/app/data/taiwan-counties.json',
         desc: '台灣縣界',
+        checked: false,
+        opacity: 1.0,
+    },
+    */
+    {
+        id: 'TOWN',
+        legend: true,
+        type: 'xyz',
+        url: nlsc('TOWN'),
+        desc: '鄉鎮區界',
+        checked: false,
+        opacity: 1.0,
+    },
+    {
+        id: 'Village',
+        legend: true,
+        type: 'xyz',
+        url: nlsc('Village'),
+        desc: '村里界',
         checked: false,
         opacity: 1.0,
     },
@@ -213,6 +231,15 @@ export default
         opacity: 1.0,
     },
     {
+        id: 'NLSC_PHOTO_MIX',
+        legend: false,
+        type: 'xyz',
+        url: nlsc('PHOTO_MIX'),
+        desc: '通用地圖(空照+等高線)',
+        checked: false,
+        opacity: 1.0,
+    },
+    {
         id: 'NLSC_PHOTO2',
         legend: false,
         type: 'xyz',
@@ -232,6 +259,15 @@ export default
         opacity: 1.0,
     },
     //*/
+    {
+        id: 'TOPO25K_107',
+        legend: false,
+        type: 'xyz',
+        url: nlsc('TOPO25K_107'),
+        desc: '經建版地形圖107年',
+        checked: false,
+        opacity: 1.0,
+    },
     {
         id: 'OSM',
         legend: false,
