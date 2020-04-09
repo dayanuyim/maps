@@ -402,9 +402,17 @@ input[type=number] {
     color: #808080;
 }
 
-#layer-grp li .ly-desc {
+#layer-grp li .ly-body {
     display: inline-block;
     min-width: 14.5em;
+}
+
+#layer-grp li .ly-spy:not(.active) {
+    display: none;
+}
+#layer-grp li .ly-spy {
+    font-size: small;
+    color: steelblue;
 }
 
 #layer-grp li .ly-opacity{

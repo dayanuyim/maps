@@ -423,6 +423,15 @@ export default
         checked: false,
         opacity: 1.0,
     },
+    {
+        id: 'JM200K_1897_new',
+        legend: false,
+        type: 'xyz',
+        url: sinica_url2('JM200K_1897_new', 'png'),
+        desc: '1987-日治臺灣假製(雙色複製版)',
+        checked: false,
+        opacity: 1.0,
+    },
     /* template for copy
     {
         id: '',
