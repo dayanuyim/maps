@@ -375,10 +375,19 @@ input[type=number] {
 }
 */
 
+#layer-grp:hover{
+    overflow-y: overlay;
+}
 #layer-grp{
-    overflow-y: auto;
     height: calc(100% - 2em);
     box-sizing: border-box;
+    padding-right: 1em; /* for scrollbar */
+}
+@-moz-document url-prefix() {
+    #layer-grp{
+        overflow-y: scroll;
+        padding-right: 0em;
+    }
 }
 
 #layer-grp ul{

@@ -163,7 +163,6 @@ export default
         opacity: 1.0,
     },
     */
-    /* TODO: enable this
     {
         id: 'HM_GPXTRACK',
         legend: true,
@@ -173,7 +172,6 @@ export default
         checked: false,
         opacity: 1.0,
     },
-    //*/
     {
         id: 'Admin_1930a',
         legend: true,
@@ -221,6 +219,17 @@ export default
         checked: true,
         opacity: 1.0,
     },
+    /*
+    {
+        id: 'RUDY_HAPPYMAN',
+        legend: false,
+        type: 'xyz',
+        url: happyman('moi_osm'),
+        desc: '魯地圖 (地圖產生器)',
+        checked: true,
+        opacity: 1.0,
+    },
+    */
     {
         id: 'EMAP5',
         legend: false,
@@ -248,7 +257,7 @@ export default
         checked: false,
         opacity: 1.0,
     },
-    /* TODO: enable this
+    /*
     {
         id: 'HP_ATIS',
         legend: false,
