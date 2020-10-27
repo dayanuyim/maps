@@ -212,7 +212,7 @@ export default
         id: 'RUDY',
         legend: false,
         type: 'xyz',
-        url: 'http://rudy.tile.basecamp.tw/{z}/{x}/{y}.png',
+        url: 'https://rudy-tile.basecamp.tw/{z}/{x}/{y}.png',
         //url: 'http://rudy-daily.tile.basecamp.tw/{z}/{x}/{y}.png',
         //url: happyman('rudy'),
         desc: '魯地圖',
