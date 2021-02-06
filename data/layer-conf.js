@@ -219,6 +219,15 @@ export default
         checked: true,
         opacity: 1.0,
     },
+    {
+        id: 'RUDY_PRINT',
+        legend: false,
+        type: 'xyz',
+        url: happyman('moi_osm'),
+        desc: '魯地圖(印刷)',
+        checked: false,
+        opacity: 1.0,
+    },
     /*
     {
         id: 'RUDY_HAPPYMAN',
