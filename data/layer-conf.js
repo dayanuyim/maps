@@ -54,16 +54,16 @@ url template
 美軍航照影像(1945/6/17攝) : Taipei_aerialphoto_1945
 */
 
-function sinica_url(id, fmt='jpeg'){
+function sinica_url_old(id, fmt='jpeg'){
     return `http://gis.sinica.edu.tw/tileserver/wmts?SERVICE=WMTS&REQUEST=GetTile&VERSION=1.0.0&LAYER=${id}&STYLE=_null&TILEMATRIXSET=GoogleMapsCompatible&TILEMATRIX={z}&TILEROW={y}&TILECOL={x}&FORMAT=image/${fmt}`;
 }
 
-function sinica_url2(id, fmt='png'){
-    return `http://gis.sinica.edu.tw/tileserver/file-exists.php?img=${id}-${fmt}-{z}-{x}-{y}`;
+function sinica_url(id, fmt='png'){
+    return `https://gis.sinica.edu.tw/tileserver/file-exists.php?img=${id}-${fmt}-{z}-{x}-{y}`;
 }
 
 function nlsc(id){
-    return `http://wmts.nlsc.gov.tw/wmts/${id}/default/EPSG:3857/{z}/{y}/{x}`;
+    return `https://wmts.nlsc.gov.tw/wmts/${id}/default/EPSG:3857/{z}/{y}/{x}`;
 }
 
 function jp_gsi(id, fmt)
@@ -72,7 +72,7 @@ function jp_gsi(id, fmt)
 }
 
 function happyman(id){
-    return `http://rs.happyman.idv.tw/map/${id}/{z}/{x}/{y}.png`;
+    return `https://rs.happyman.idv.tw/map/${id}/{z}/{x}/{y}.png`;
 
 }
 
@@ -176,7 +176,7 @@ export default
         id: 'Admin_1930a',
         legend: true,
         type: 'xyz',
-        url: sinica_url2('Admin_1930a'),
+        url: sinica_url('Admin_1930a'),
         desc: '1930-日治行政區-州廳',
         checked: false,
         opacity: 1.0,
@@ -185,7 +185,7 @@ export default
         id: 'Admin_1930b',
         legend: true,
         type: 'xyz',
-        url: sinica_url2('Admin_1930b'),
+        url: sinica_url('Admin_1930b'),
         desc: '1930-日治行政區-郡市',
         checked: false,
         opacity: 1.0,
@@ -194,7 +194,7 @@ export default
         id: 'Admin_1930c',
         legend: true,
         type: 'xyz',
-        url: sinica_url2('Admin_1930c'),
+        url: sinica_url('Admin_1930c'),
         desc: '1930-日治行政區-街庄',
         checked: false,
         opacity: 1.0,
@@ -212,9 +212,9 @@ export default
         id: 'RUDY',
         legend: false,
         type: 'xyz',
-        url: 'https://rudy-tile.basecamp.tw/{z}/{x}/{y}.png',
+        //url: 'https://rudy-tile.basecamp.tw/{z}/{x}/{y}.png',
         //url: 'http://rudy-daily.tile.basecamp.tw/{z}/{x}/{y}.png',
-        //url: happyman('rudy'),
+        url: happyman('rudy'),
         desc: '魯地圖',
         checked: true,
         opacity: 1.0,
@@ -337,7 +337,7 @@ export default
         id: 'TM25K_2001',
         legend: false,
         type: 'xyz',
-        url: sinica_url2('TM25K_2001', 'jpg'),
+        url: sinica_url('TM25K_2001', 'jpg'),
         desc: '2001-經建三版',
         checked: false,
         opacity: 1.0,
@@ -400,7 +400,7 @@ export default
         id: 'JM50K_1924_new',
         legend: false,
         type: 'xyz',
-        url: sinica_url2('JM50K_1924_new'),
+        url: sinica_url('JM50K_1924_new'),
         desc: '1924-日治地形圖(陸地測量部)',
         checked: false,
         opacity: 1.0,
@@ -445,7 +445,7 @@ export default
         id: 'JM200K_1897_new',
         legend: false,
         type: 'xyz',
-        url: sinica_url2('JM200K_1897_new', 'png'),
+        url: sinica_url('JM200K_1897_new', 'png'),
         desc: '1987-日治臺灣假製(雙色複製版)',
         checked: false,
         opacity: 1.0,
