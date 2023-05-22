@@ -79,6 +79,10 @@ function happyman2(id){
     return `https://tile.happyman.idv.tw/mp/wmts/${id}/gm_grid/{z}/{x}/{y}.png`;
 }
 
+function happyman3(id){
+    return `https://tile.happyman.idv.tw/map/${id}/{z}/{x}/{y}.png`;
+}
+
 export default
 [
     {
@@ -171,7 +175,8 @@ export default
         legend: true,
         type: 'xyz',
         //url: happyman('gpxtrack'),
-        url: happyman2('happyman'),
+        //url: happyman2('happyman'),
+        url: happyman3('gpxtrack'),
         desc: '地圖產生器航跡',
         checked: false,
         opacity: 1.0,
@@ -219,7 +224,7 @@ export default
         urls: [
             //url: 'http://rudy-daily.tile.basecamp.tw/{z}/{x}/{y}.png',
             //'https://rudy-tile.basecamp.tw/{z}/{x}/{y}.png',
-            happyman2('rudy'),
+            happyman3('rudy'),
         ],
         desc: '魯地圖',
         checked: true,
@@ -230,7 +235,8 @@ export default
         legend: false,
         type: 'xyz',
         //url: happyman('moi_osm'),
-        url: happyman2('rudy_twmap'),
+        //url: happyman2('rudy_twmap'),
+        url: happyman3('moi_osm'),
         desc: '魯地圖(印刷)',
         checked: false,
         opacity: 1.0,
