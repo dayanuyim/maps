@@ -768,13 +768,26 @@ select::-ms-expand {
     transition: transform 100ms ease-in-out;
 }
 
+#ctx-menu .ctx-item-bar {
+    border-top: 1px solid #a0a0a0;
+}
+
 #ctx-menu .ctx-item {
     padding: 8px 10px;
     font-size: 15px;
     color: #eee;
     cursor: pointer;
-    border-radius: inherit;
+    /*border-radius: inherit;*/
 }
+
+#ctx-menu .ctx-item:first-child {
+    border-radius: 5px 5px 0 0;
+}
+
+#ctx-menu .ctx-item:last-child {
+    border-radius: 0 0 5px 5px;
+}
+
 
 #ctx-menu .ctx-item a {
     color: #eee;
@@ -789,6 +802,7 @@ select::-ms-expand {
 
 #ctx-menu .ctx-item i,
 #ctx-menu .ctx-item svg {
+    display: inline-block;
     width: 16px;
     margin-right: 8px;
 }
