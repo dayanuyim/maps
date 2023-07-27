@@ -713,7 +713,10 @@ select::-ms-expand {
 }
 
 .pt-sym-board-item {
-    padding: 1px;
+    margin: 1px;
+    width: 32px;
+    height: 32px;
+    background-image: url(c79699e87786cbff2dcd.png);
 }
 .pt-sym-board-item:hover {
     cursor: pointer;
