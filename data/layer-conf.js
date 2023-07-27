@@ -218,6 +218,16 @@ export default
         opacity: 1.0,
     },
     {
+        id: 'Canal',
+        legend: true,
+        type: 'wms',
+        url: 'https://www.iacloud.ia.gov.tw/servergate/sgsgate.ashx/WMS/canal_public',
+        layers: 'canal_public',
+        desc: '農田水利灌排渠道系統圖',
+        checked: false,
+        opacity: 1.0,
+    },
+    {
         id: 'RUDY',
         legend: false,
         type: 'xyz',
