@@ -713,16 +713,23 @@ select::-ms-expand {
 }
 
 .pt-sym-board-item {
-    margin: 1px;
-    width: 32px;
-    height: 32px;
-    background-image: url(c79699e87786cbff2dcd.png);
+    padding: 2px;
+    border-radius: 4px;
 }
-.pt-sym-board-item:hover {
+.pt-sym-board-item:hover{
+    background-color: white;
     cursor: pointer;
 }
 .pt-sym-board-item.extra {
     background-color: rgba(0, 0, 0, 0.2);
+}
+.pt-sym-board-item.extra:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+.pt-sym-board-item-img {
+    width: 32px;
+    height: 32px;
+    background-image: url(c79699e87786cbff2dcd.png);
 }
 
 .pt-name {
