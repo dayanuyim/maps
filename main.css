@@ -663,14 +663,14 @@ select::-ms-expand {
 }
 
 /******************* Point Popup Overlay ********************/
-#pt-popup input,
+/*#pt-popup input,*/
 #pt-popup span[contenteditable]{
     padding: 2px 4px;
     border-radius: 4px;
     border: solid 1px transparent;
 }
 
-#pt-popup input:focus-visible,
+/*#pt-popup input:focus-visible,*/
 #pt-popup span[contenteditable]:focus-visible{
     outline: 0;
     background-color: #e8e8e8;
@@ -693,10 +693,8 @@ select::-ms-expand {
     cursor: pointer;
 }
 
-.pt-sym-board {
+.pt-symboard {
     position: absolute;
-    display: grid;
-    grid-template-columns: repeat(20, 1fr);
     padding: 4px;
     z-index: 10;
 
@@ -708,28 +706,49 @@ select::-ms-expand {
     border: 1px solid rgba(209, 213, 219, 0.8);
 }
 
-.pt-sym-board.hidden {
-    display: none;
+.pt-symboard-items {
+    display: grid;
+    grid-template-columns: repeat(20, 1fr);
 }
 
-.pt-sym-board-item {
+.pt-symboard-item {
     padding: 2px;
     border-radius: 4px;
 }
-.pt-sym-board-item:hover{
-    background-color: white;
+.pt-symboard-item:hover{
+    background-color: rgba(255, 255, 255, 0.7);
     cursor: pointer;
 }
-.pt-sym-board-item.extra {
+.pt-symboard-item.extra {
     background-color: rgba(0, 0, 0, 0.2);
 }
-.pt-sym-board-item.extra:hover {
+.pt-symboard-item.extra:hover {
     background-color: rgba(0, 0, 0, 0.1);
 }
-.pt-sym-board-item-img {
+.pt-symboard-item-img {
     width: 32px;
     height: 32px;
     background-image: url(c79699e87786cbff2dcd.png);
+}
+
+.pt-symboard-footer{
+    border-top: 2px solid lightgray;
+    margin-top: 2px;
+}
+
+.pt-symboard-footer>label{
+    margin-left: 4px;
+    /*vertical-align: middle;*/
+}
+
+.pt-symboard-footer>input{
+    width: calc(100% - 3em);
+    background: transparent;
+    border: none;
+    outline: 0;
+    font-size: 20px;
+    color: #202020;
+    text-shadow: -1px -1px 0 #f0f0f0, 1px -1px 0 #f0f0f0, -1px 1px 0 #f0f0f0, 1px 1px 0 #f0f0f0;
 }
 
 .pt-name {
