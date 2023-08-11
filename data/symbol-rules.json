@@ -82,7 +82,7 @@
     { "enabled": true, "type": "endswith", "text": "橋",        "sym": "bridge" },
     { "enabled": true, "type": "endswith", "text": "倒木",      "sym": "stump" },
     { "enabled": true, "type": "endswith", "text": "盜伐",      "sym": "stump" },
-    { "enabled": true, "type": "endswith", "text": "樹根牆",    "sym": "stump" },
+    { "enabled": true, "type": "contains", "text": "樹根",      "sym": "stump" },
     { "enabled": true, "type": "contains", "text": "停車場",    "sym": "parking area" },
     { "enabled": true, "type": "contains", "text": "崩塌",      "sym": "dropoff" },
     { "enabled": true, "type": "regex",    "text": ".*[0-9][kK]$", "sym": "mile marker" },

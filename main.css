@@ -613,12 +613,13 @@ input[type=number] {
     background-color: white;
     -webkit-filter: drop-shadow(0 1px 4px rgba(0,0,0,0.2));
     filter: drop-shadow(0 1px 4px rgba(0,0,0,0.2));
-    padding: 15px 2em 15px 15px;
+    /*padding: 15px 2em 15px 15px;*/
+    padding: 2px;
     border-radius: 10px;
     border: 1px solid #cccccc;
     bottom: 12px;
     left: -50px;
-    min-width: 225px;
+    /*min-width: 225px;*/
 }
 .ol-popup:after, .ol-popup:before {
     top: 100%;
@@ -653,6 +654,17 @@ input[type=number] {
     content: "✖";
 }
 
+.popup-resizer.active:not(.disabled) {
+    transform: rotateX(180deg);   /*resize cursor in top-right corner */
+    resize: both;
+    overflow: hidden;
+}
+
+.popup-resizer.active:not(.disabled) .popup-resizer-content{
+    transform: rotateX(180deg);
+}
+
+
 select, option {
     -webkit-appearance: none; /* WebKit/Chromium */
     -moz-appearance: none; /* Gecko */
@@ -666,7 +678,6 @@ select::-ms-expand {
 /*#pt-popup input,*/
 #pt-popup span[contenteditable]{
     padding: 2px 4px;
-    border-radius: 4px;
     border: solid 1px transparent;
 }
 
@@ -675,6 +686,11 @@ select::-ms-expand {
     outline: 0;
     background-color: #e8e8e8;
     border: solid 1px #d0d0d0;
+    border-radius: 4px;
+}
+
+.ol-popup-content {
+    padding: 8px 32px 8px 8px;  /* right space for tool buttons */
 }
 
 .pt-header,
@@ -684,9 +700,23 @@ select::-ms-expand {
     white-space: nowrap;
 }
 
+/*  Set the position of pt-header on the top of the panel */
+/*
+.ol-popup { border-top-left-radius: 0; }
+.pt-header {
+    position: absolute;
+    top: -32px;
+    left: 0px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 10px 4px 0 0;
+    padding: 4px 4px 0px 2px;
+}
+*/
+
 .pt-sym {
-    margin-left: 12px;
-    vertical-align: sub;
+    margin-left: 4px;
+    padding: 2px;  /* match the size of text of pt-name */
+    vertical-align: -7px;
 }
 
 .pt-sym:hover {
@@ -734,6 +764,7 @@ select::-ms-expand {
 .pt-symboard-footer{
     border-top: 2px solid lightgray;
     margin-top: 2px;
+    padding-top: 2px;
 }
 
 .pt-symboard-footer>label{
@@ -764,7 +795,7 @@ select::-ms-expand {
 }
 
 .pt-coord-title, .pt-ele-title, .pt-time-title{
-    width: 60px;
+    width: 50px;
     font-weight: 600;
     text-align: right;
     display: inline-block;
@@ -783,7 +814,7 @@ select::-ms-expand {
 }
 
 /* to align editable ele and time fields */
-.pt-coord-title { padding-right: 5px; width: 65px;}
+.pt-coord-title { padding-right: 5px; width: 55px;}
 .pt-time-value { padding-left:5px; }
 
 .pt-gmap img {
@@ -819,7 +850,7 @@ select::-ms-expand {
 }
 
 .pt-tool-rm-wpt button svg {
-    color: dimgray;
+    color: #505050;
 }
 
 .sym-copyright ,
@@ -829,6 +860,38 @@ select::-ms-expand {
     font-size: x-small;
     margin-top: 3px;
 }
+
+/********************** PT-Image Active *****************/
+.pt-image.active {
+    height: 300px;
+    width: 400px;
+    background-size:     cover;
+    background-repeat:   no-repeat;
+    background-position: center center;
+    border-radius: 8px;
+}
+
+.pt-image.active .ol-popup-content:hover{
+    background-color: rgba(255, 255, 255, 0.5);
+}
+.pt-image.active .ol-popup-content:hover .pt-sym,
+.pt-image.active .ol-popup-content:hover .pt-name{ background-color: unset; }
+
+.pt-image.active .pt-sym,
+.pt-image.active .pt-name{ background-color: rgba(255, 255, 255, 0.5); }
+.pt-image.active .pt-sym { border-radius: 4px 0 0 4px; }
+.pt-image.active .pt-name{ border-radius: 0 4px 4px 0; }
+
+.pt-image.active .pt-coord,
+.pt-image.active .pt-coord-title,
+.pt-image.active .pt-ele,
+.pt-image.active .pt-time,
+.pt-image.active .sym-copyright,
+.pt-image.active .sym-copyright a:link,
+.pt-image.active .sym-copyright a:visited{
+    color: #202020;
+}
+
 /*!*******************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js!./app/css/tab.css ***!
   \*******************************************************************/
