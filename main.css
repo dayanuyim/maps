@@ -728,7 +728,7 @@ select::-ms-expand {
 
 .pt-colorboard-items {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(5, 1fr);
 }
 
 .pt-colorboard-item {
@@ -737,7 +737,7 @@ select::-ms-expand {
     border-radius: 4px;
 }
 .pt-colorboard-item:hover{
-    background-color: rgba(255, 255, 255, 0.7);
+    /*filter: brightness(1.1);*/
     cursor: pointer;
 }
 /*----------------------------------------------------------------*/
