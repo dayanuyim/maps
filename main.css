@@ -420,6 +420,14 @@ html, body {
     display: none;
 }
 
+.glassmophism {
+    backdrop-filter: blur(6px) saturate(200%);
+    -webkit-backdrop-filter: blur(6px) saturate(200%);
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 12px;
+    border: 1px solid rgba(209, 213, 219, 0.8);
+}
+
 /* the same with .ol-control button */
 /*
 .ol-button {
@@ -693,17 +701,57 @@ select::-ms-expand {
     padding: 8px 32px 8px 8px;  /* right space for tool buttons */
 }
 
-.pt-header,
+/*----------------------------------------------------------------*/
+
+.pt-trk-header {
+    white-space: nowrap;
+}
+
+.pt-trk-color:hover { cursor: pointer;}
+.pt-trk-color {
+    display: inline-block;
+    padding: 8px;
+    margin: 4px;
+    border: solid 1px #d0d0d0;
+}
+
+.pt-trk-name {
+    vertical-align: 6px;
+    font-weight: bold;
+}
+
+.pt-colorboard {
+    position: absolute;
+    z-index: 10;
+    padding: 4px;
+}
+
+.pt-colorboard-items {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.pt-colorboard-item {
+    padding: 8px;
+    margin: 4px;
+    border-radius: 4px;
+}
+.pt-colorboard-item:hover{
+    background-color: rgba(255, 255, 255, 0.7);
+    cursor: pointer;
+}
+/*----------------------------------------------------------------*/
+.pt-wpt-header,
 .pt-coord,
 .pt-ele,
 .pt-time {
     white-space: nowrap;
 }
 
-/*  Set the position of pt-header on the top of the panel */
+/*  Set the position of pt-wpt-header on the top of the panel */
 /*
 .ol-popup { border-top-left-radius: 0; }
-.pt-header {
+.pt-wpt-header {
     position: absolute;
     top: -32px;
     left: 0px;
@@ -713,8 +761,13 @@ select::-ms-expand {
 }
 */
 
-.pt-sym {
+.pt-wpt-header:not(.hidden) {
+    display: inline-block;
+    border-radius: 4px;
     margin-left: 4px;
+}
+
+.pt-sym {
     padding: 2px;  /* match the size of text of pt-name */
     vertical-align: -7px;
 }
@@ -727,13 +780,6 @@ select::-ms-expand {
     position: absolute;
     padding: 4px;
     z-index: 10;
-
-    /* glassmophism */
-    backdrop-filter: blur(6px) saturate(200%);
-    -webkit-backdrop-filter: blur(6px) saturate(200%);
-    background-color: rgba(255, 255, 255, 0.5);
-    border-radius: 12px;
-    border: 1px solid rgba(209, 213, 219, 0.8);
 }
 
 .pt-symboard-items {
@@ -874,13 +920,8 @@ select::-ms-expand {
 .pt-image.active .ol-popup-content:hover{
     background-color: rgba(255, 255, 255, 0.5);
 }
-.pt-image.active .ol-popup-content:hover .pt-sym,
-.pt-image.active .ol-popup-content:hover .pt-name{ background-color: unset; }
-
-.pt-image.active .pt-sym,
-.pt-image.active .pt-name{ background-color: rgba(255, 255, 255, 0.5); }
-.pt-image.active .pt-sym { border-radius: 4px 0 0 4px; }
-.pt-image.active .pt-name{ border-radius: 0 4px 4px 0; }
+.pt-image.active .ol-popup-content:hover .pt-wpt-header{ background-color: unset; }
+.pt-image.active .pt-wpt-header{ background-color: rgba(255, 255, 255, 0.5); }
 
 .pt-image.active .pt-coord,
 .pt-image.active .pt-coord-title,
