@@ -37,6 +37,8 @@
     { "enabled": true, "type": "endswith", "text": "公所",      "sym": "city hall" },
     { "enabled": true, "type": "endswith", "text": "加油站",    "sym": "gas station" },
     { "enabled": true, "type": "endswith", "text": "圖書館",    "sym": "library" },
+    { "enabled": true, "type": "endswith", "text": "警察局",    "sym": "police station" },
+    { "enabled": true, "type": "endswith", "text": "派出所",    "sym": "police station" },
     { "enabled": true, "type": "endswith", "text": "國小",      "sym": "school" },
     { "enabled": true, "type": "endswith", "text": "國中",      "sym": "school" },
     { "enabled": true, "type": "endswith", "text": "高中",      "sym": "school" },
