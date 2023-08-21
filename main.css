@@ -506,24 +506,29 @@ input[type=number] {
 }
 */
 
+/*
 #layer-grp:hover{
-    overflow-y: overlay;
+    overflow-y: scroll;
+    padding-right: 0;
 }
+*/
 #layer-grp{
     height: calc(100% - 2em);
     box-sizing: border-box;
-    padding-right: 1em; /* for scrollbar */
+    overflow-y: auto;
+    /*padding-right: 17px; *//* width of scrollbar in Chrome, Firefox*/
 }
-@-moz-document url-prefix() {
+/*
+@supports (-ms-ime-align:auto) {
     #layer-grp{
-        overflow-y: scroll;
-        padding-right: 0em;
+        padding-right: 15px; /* width of scrollbar in Edge
     }
 }
+*/
 
 #layer-grp ul{
     padding: 0;
-    margin: 0.5em 0 0.5em 0;
+    margin: 4px 2px 4px 0;
     list-style-type: none;
 }
 #layer-grp ul:not(:last-child){
