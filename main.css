@@ -450,13 +450,13 @@ html, body {
 
 /* Remove input[type=number] Arrows/Spinners */
 /* Chrome, Safari, Edge, Opera */
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
+#layer-grp input::-webkit-outer-spin-button,
+#layer-grp input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
 /* Firefox */
-input[type=number] {
+#layer-grp input[type=number] {
   -moz-appearance:textfield;
 }
 
@@ -573,6 +573,21 @@ input[type=number] {
 }
 #layer-grp li .ly-opacity+i{
     transform: scale(0.8);
+}
+
+/*----------------------------------------------------------------*/
+
+#options .opt-group {
+    border-width: 1px 0 0 0;
+    margin-bottom: 8px;
+}
+
+#options .opt-item:not(:last-child){
+    margin-bottom: 4px;
+}
+
+#options .opt-subitem {
+    margin-left: 1.5em;
 }
 
 /*============ Side Settings ==================*/
