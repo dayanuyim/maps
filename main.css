@@ -586,8 +586,8 @@ html, body {
     margin-bottom: 4px;
 }
 
-#options .opt-subitem {
-    margin-left: 1.5em;
+#options button:hover{
+    cursor: pointer;
 }
 
 /*============ Side Settings ==================*/
