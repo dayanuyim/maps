@@ -450,13 +450,13 @@ html, body {
 
 /* Remove input[type=number] Arrows/Spinners */
 /* Chrome, Safari, Edge, Opera */
-#layer-grp input::-webkit-outer-spin-button,
-#layer-grp input::-webkit-inner-spin-button {
+#setting-layers input::-webkit-outer-spin-button,
+#setting-layers input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
 /* Firefox */
-#layer-grp input[type=number] {
+#setting-layers input[type=number] {
   -moz-appearance:textfield;
 }
 
@@ -507,12 +507,12 @@ html, body {
 */
 
 /*
-#layer-grp:hover{
+#setting-layers:hover{
     overflow-y: scroll;
     padding-right: 0;
 }
 */
-#layer-grp{
+#setting-layers{
     height: calc(100% - 2em);
     box-sizing: border-box;
     overflow-y: auto;
@@ -520,47 +520,47 @@ html, body {
 }
 /*
 @supports (-ms-ime-align:auto) {
-    #layer-grp{
+    #setting-layers{
         padding-right: 15px; /* width of scrollbar in Edge
     }
 }
 */
 
-#layer-grp ul{
+#setting-layers ul{
     padding: 0;
     margin: 4px 2px 4px 0;
     list-style-type: none;
 }
-#layer-grp ul:not(:last-child){
+#setting-layers ul:not(:last-child){
     border-bottom: solid 1px #ccc;
     padding-bottom: 0.5em;
 }
 
-#layer-grp li:hover{
+#setting-layers li:hover{
     background: #e8e8e8;
     cursor: grab;
 }
-#layer-grp li .ly-checked:checked ~ *{
+#setting-layers li .ly-checked:checked ~ *{
     color: #202020;
 }
-#layer-grp li .ly-checked ~ *{
+#setting-layers li .ly-checked ~ *{
     color: #808080;
 }
 
-#layer-grp li .ly-body {
+#setting-layers li .ly-body {
     display: inline-block;
     min-width: 14.5em;
 }
 
-#layer-grp li .ly-spy:not(.active) {
+#setting-layers li .ly-spy:not(.active) {
     display: none;
 }
-#layer-grp li .ly-spy {
+#setting-layers li .ly-spy {
     font-size: small;
     color: steelblue;
 }
 
-#layer-grp li .ly-opacity{
+#setting-layers li .ly-opacity{
     transform: scale(1.2) translate(4px, -1px);
     text-align: right;
     margin-right: 3px;
@@ -568,39 +568,93 @@ html, body {
     border: none;
     background-color: transparent;
 }
-#layer-grp li .ly-opacity:hover{
+#setting-layers li .ly-opacity:hover{
     background-color: white;
 }
-#layer-grp li .ly-opacity+i{
+#setting-layers li .ly-opacity+i{
     transform: scale(0.8);
 }
 
 /*----------------------------------------------------------------*/
 
-#options .opt-group {
+#setting-opts .opt-group {
     border-width: 1px 0 0 0;
     margin-bottom: 8px;
 }
 
-#options .opt-item:not(:last-child){
+#setting-opts .opt-item:not(:last-child){
     margin-bottom: 4px;
 }
 
-#options button:hover{
+#setting-opts button:hover{
     cursor: pointer;
 }
 
-/*============ Side Settings ==================*/
-.settings-side {
-    z-index: 9;   /* why need this to prvent being covered by maps? */
+/*============ Bar Settings ==================*/
+.settings-bar {
+    z-index: 9;   /* prvent being covered by the map */
+}
+
+.settings-bar .ctrl-btn:not(.active){
+    /*background: rgba(64, 64, 64, .5);*/
+    color: lightgray;
+}
+
+/*------------ Sidebar Settings ------------------*/
+
+.settings-bar.side {
     left: .5em;
     top: 18em;
 }
 
-.settings-side button:not(.active){
-    /*background: rgba(64, 64, 64, .5);*/
-    color: lightgray;
+/*------------ Topbar Settings ------------------*/
+.settings-bar.top {
+    left: 3em;
+    top: .5em;
 }
+.settings-bar.top button{
+    display: inline-block;
+}
+
+.settings-bar.top /*.goto-panel:not(:hover)*/ .goto-btn:not(.active) + .goto-coord{
+    display: none;
+}
+
+.settings-bar.top .goto-coord .goto-coordsys {
+    font-size: 95%;
+    outline: 0;
+    border: 0px;
+    color: white;
+    background: rgba(0,0,0,0.4);
+    padding: 3px 4px 2px 4px;;
+    vertical-align: 0px;
+    margin: 0 -4px;
+}
+.settings-bar.top .goto-coord .goto-coordsys:hover {
+    cursor: pointer;
+}
+
+.settings-bar.top .goto-coord input{
+    text-align: right;
+    font-size: 16px;
+    border: none;
+    border-radius: 2px;
+    outline: 0;
+    vertical-align: 0px;
+    padding: 3px 3px 1px 3px;
+    margin-right: 1px;
+    width: 7em;
+}
+
+.settings-bar.top .goto-coord input::placeholder{
+    color: #b0b0b0;
+    font-size: smaller;
+}
+
+.settings-bar.top .goto-coord .goto-coord-go {
+    margin-left: 0px;
+}
+
 /*============= Map ======================*/
 
 .ol-map-container {
@@ -861,7 +915,7 @@ select::-ms-expand {
 }
 
 .pt-coord-title, .pt-ele-title, .pt-time-title{
-    width: 50px;
+    width: 55px;
     font-weight: 600;
     text-align: right;
     display: inline-block;
@@ -879,8 +933,12 @@ select::-ms-expand {
     cursor: pointer;
 }
 
+.pt-coord-title option[value$="_6"]{
+    display: none;
+}
+
 /* to align editable ele and time fields */
-.pt-coord-title { padding-right: 5px; width: 55px;}
+.pt-coord-title { padding-right: 5px; width: 60px;}
 .pt-time-value { padding-left:5px; }
 
 .pt-gmap img {
