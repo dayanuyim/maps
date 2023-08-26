@@ -621,6 +621,7 @@ html, body {
 }
 
 .settings-bar.top .goto-coord .goto-coordsys {
+    text-align: center;
     font-size: 95%;
     outline: 0;
     border: 0px;
@@ -638,10 +639,10 @@ html, body {
     text-align: right;
     font-size: 16px;
     border: none;
-    border-radius: 2px;
+    border-radius: 0 2px 2px 0;
     outline: 0;
     vertical-align: 0px;
-    padding: 3px 3px 1px 3px;
+    padding: 2px 4px 1px 4px;
     margin-right: 1px;
     width: 7em;
 }
@@ -653,6 +654,7 @@ html, body {
 
 .settings-bar.top .goto-coord .goto-coord-go {
     margin-left: 0px;
+    display: none;
 }
 
 /*============= Map ======================*/
