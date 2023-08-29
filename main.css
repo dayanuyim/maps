@@ -576,18 +576,33 @@ html, body {
 }
 
 /*----------------------------------------------------------------*/
+#setting-opts button:hover{
+    cursor: pointer;
+}
 
 #setting-opts .opt-group {
     border-width: 1px 0 0 0;
     margin-bottom: 8px;
 }
 
-#setting-opts .opt-item:not(:last-child){
-    margin-bottom: 4px;
+#setting-opts legend {
+    font-weight: bold;
 }
 
-#setting-opts button:hover{
-    cursor: pointer;
+#setting-opts ul.opt-item {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    font-weight: bold;
+}
+
+#setting-opts ul.opt-item li{
+    margin-left: 1em;
+    font-weight: normal;
+}
+
+#setting-opts ul.opt-item:not(:last-child){
+    margin-bottom: 4px;
 }
 
 /*============ Bar Settings ==================*/
