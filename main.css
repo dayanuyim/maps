@@ -582,7 +582,7 @@ html, body {
 
 #setting-opts .opt-group {
     border-width: 1px 0 0 0;
-    margin-bottom: 8px;
+    margin-top: 8px;
 }
 
 #setting-opts legend {
