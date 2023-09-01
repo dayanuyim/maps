@@ -788,6 +788,15 @@ select::-ms-expand {
     border-radius: 4px;
 }
 
+/* as placeholder */
+#pt-popup span[contenteditable]:empty:before
+{
+    color: lightgray;
+    font-weight: normal;
+    font-style: italic;
+    content: "NAME";
+}
+
 .ol-popup-content {
     padding: 4px 32px 4px 4px;  /* right space for tool buttons */
 }
@@ -795,6 +804,7 @@ select::-ms-expand {
 /*----------------------------------------------------------------*/
 
 .pt-trk {
+    position: relative;
     white-space: nowrap;
     border-bottom: solid 1px lightgray;
     margin-bottom: 5px;
@@ -844,8 +854,16 @@ select::-ms-expand {
 }
 
 .pt-trk-name {
-    vertical-align: 6px;
+    vertical-align: 7px;
     font-weight: bold;
+}
+
+.pt-trk-seg-sn {
+    position: absolute;
+    bottom: 7px;
+    right: -25px;
+    color: gray;
+    font-size: small;
 }
 
 .pt-colorboard {
@@ -856,7 +874,7 @@ select::-ms-expand {
 
 .pt-colorboard-items {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(4, 1fr);
 }
 
 .pt-colorboard-item:hover{
