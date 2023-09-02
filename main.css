@@ -626,6 +626,7 @@ html, body {
 .settings-bar.top {
     left: 3em;
     top: .5em;
+    border-radius: 0 16px 16px 0;
 }
 .settings-bar.top button{
     display: inline-block;
@@ -650,26 +651,43 @@ html, body {
     cursor: pointer;
 }
 
-.settings-bar.top .goto-coord input{
-    text-align: right;
+.settings-bar.top .goto-coord .goto-coord-txt{
+    text-align: left;
     font-size: 16px;
     border: none;
-    border-radius: 0 2px 2px 0;
+    border-radius: 0 16px 16px 0;
     outline: 0;
     vertical-align: 0px;
-    padding: 2px 4px 1px 4px;
+    padding: 2px 8px 1px 8px;
     margin-right: 1px;
     width: 7em;
 }
 
-.settings-bar.top .goto-coord input::placeholder{
+.settings-bar.top .goto-coord .goto-coord-txt.invalid {
+    background-color: #ffa0a0;
+}
+
+.settings-bar.top .goto-coord .goto-coord-txt::placeholder{
     color: #b0b0b0;
     font-size: smaller;
 }
 
+.settings-bar.top .goto-coord .goto-coord-go:hover {
+    cursor: pointer;
+}
 .settings-bar.top .goto-coord .goto-coord-go {
     margin-left: 0px;
-    display: none;
+    border-radius: 16px;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    border: solid 1px lightgray;
+    padding: 2px;
+    font-size: 16px;
+}
+
+.settings-bar.top .goto-coord .goto-coord-go svg{
+    font-size: 12px;
 }
 
 /*============= Map ======================*/
