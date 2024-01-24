@@ -987,7 +987,7 @@ select::-ms-expand {
 
 .pt-symboard-items {
     display: grid;
-    grid-template-columns: repeat(20, 1fr);
+    grid-template-columns: repeat(21, 1fr);
 }
 
 .pt-symboard-item {
@@ -1007,7 +1007,7 @@ select::-ms-expand {
 .pt-symboard-item-img {
     width: 32px;
     height: 32px;
-    background-image: url(c79699e87786cbff2dcd.png);
+    background-image: url(a04d235aca4ee0159cd5.png);
 }
 
 .pt-symboard-footer{
