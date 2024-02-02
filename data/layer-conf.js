@@ -1,7 +1,7 @@
 /*
-               |- layer-repo.ts
-layer-conf.js -|
-               |- opt.ts  <-> settings.ts
+                          | -> layer-repo.ts
+layer-conf.js -> opts.ts -|
+                          | <-> settings.ts
 */
 
 /* 
@@ -262,9 +262,25 @@ export default
         legend: true,
         type: 'gpx',
         url: './data/forest_road_81.gpx',
-        interactable: true,
         checked: false,
         opacity: 1.0,
+        interactable: true,
+        readonly: true,
+        filterable: false,
+    },
+    {
+        id: 'Twtript',
+        desc: '全國基石資料',
+        legend: true,
+        type: 'gpx',
+        url: './data/twtript.gpx',
+        checked: true,
+        opacity: 1.0,
+        interactable: true,
+        readonly: true,
+        filterable: false,
+        invisible: true,
+        scale: 0.375,
     },
     //--------------------------------------------------------------------------------------
     {

@@ -544,27 +544,38 @@ html, body {
     background: #e8e8e8;
     cursor: grab;
 }
-#setting-layers li .ly-checked:checked ~ *{
+#setting-layers li .ly-opt-checked:checked ~ *{
     color: #202020;
 }
-#setting-layers li .ly-checked ~ *{
+#setting-layers li .ly-opt-checked ~ *{
     color: #808080;
 }
 
 #setting-layers li .ly-body {
     display: inline-block;
-    min-width: 14.5em;
+    min-width: 15.5em;
 }
 
-#setting-layers li .ly-spy:not(.active) {
-    display: none;
+#setting-layers li button.ly-ctrl {
+    font-size: smaller;
+    border: none;
+    background: transparent;
+    padding: 0;
+    margin: 0;
+    color: lightgrey;
 }
-#setting-layers li .ly-spy {
-    font-size: small;
+#setting-layers li:not(:hover) button.ly-ctrl:not(.enabled) {
+    visibility: hidden;
+}
+#setting-layers li button.ly-ctrl:hover {
+    color: cornflowerblue;
+    cursor: pointer;
+}
+#setting-layers li button.ly-ctrl.enabled {
     color: steelblue;
 }
 
-#setting-layers li .ly-opacity{
+#setting-layers li .ly-opt-opacity{
     transform: scale(1.2) translate(4px, -1px);
     text-align: right;
     margin-right: 3px;
@@ -572,10 +583,10 @@ html, body {
     border: none;
     background-color: transparent;
 }
-#setting-layers li .ly-opacity:hover{
+#setting-layers li .ly-opt-opacity:hover{
     background-color: white;
 }
-#setting-layers li .ly-opacity+i{
+#setting-layers li .ly-opt-opacity+i{
     transform: scale(0.8);
 }
 
@@ -609,38 +620,122 @@ html, body {
     margin-bottom: 4px;
 }
 
-/*============ Bar Settings ==================*/
-.settings-bar {
+/*********************************************************
+/* Toolbar
+/********************************************************/
+
+.toolbar{
+    position: relative;
     z-index: 9;   /* prvent being covered by the map */
 }
 
-.settings-bar .ctrl-btn:not(.active){
-    /*background: rgba(64, 64, 64, .5);*/
-    color: lightgray;
+.toolbar .ctrl-btn {
+    display: inline-block;
 }
 
-/*------------ Sidebar Settings ------------------*/
+.toolbar .ctrl-btn.enabled {
+    color: steelblue
+}
 
-.settings-bar.side {
+.toolbar .ctrl-btn:not(.enabled){
+    /*background: rgba(64, 64, 64, .5);*/
+    /*color: lightgray;*/
+}
+
+/*============ Sidebar ==================*/
+
+.toolbar-side{
     left: .5em;
     top: 18em;
 }
 
-/*------------ Topbar Settings ------------------*/
-.settings-bar.top {
+/*============ Topbar =================*/
+.toolbar-top{
     left: 3em;
     top: .5em;
-    border-radius: 0 16px 16px 0;
-}
-.settings-bar.top button{
-    display: inline-block;
 }
 
-.settings-bar.top /*.goto-panel:not(:hover)*/ .goto-btn:not(.active) + .goto-coord{
+.toolbar-top .ol-control:nth-child(2) { left: 2em; }
+.toolbar-top .ol-control:nth-child(3) { left: 4em; }
+.toolbar-top .ol-control:nth-child(4) { left: 6em; }
+.toolbar-top .ol-control:nth-child(5) { left: 8em; }
+
+
+/*------------ Topbar / Filter -----------------*/
+
+.toolbar-top .ctrl-btn-filter:not(.active) ~ .filter-panel{
     display: none;
 }
 
-.settings-bar.top .goto-coord .goto-coordsys {
+.filter-panel{
+    position: absolute;  /* use absolute since it is under the ol-control */
+    min-width: 10em;
+    padding: 6px;
+    border-radius: 0 4px 8px 8px;
+    margin-top: 1px;
+}
+
+.filter-panel .tabcontent {
+    border-width: 0;
+}
+
+.filter-panel input:checked + label{
+    color: #404040;
+}
+.filter-panel input:not(:checked) + label{
+    color: #808080;
+}
+
+.filter-panel .filter-row {
+    white-space: nowrap;
+}
+
+.filter-panel .filter-row label{
+    display: inline-block;
+    width: 3em;
+}
+.filter-panel .filter-row input{
+    border-width: 0;
+    border-bottom: 1px dashed lightgray;
+    padding: 0px 4px;
+    color: #404040;
+}
+
+.filter-panel .filter-row input:focus-visible{
+    outline: 0;
+    background-color: #f8f8f8;
+}
+
+.filter-panel .filter-row button {
+    display: inline;
+    font-size: 10px;
+    vertical-align: 1px;
+}
+
+.filter-panel .filter-row button.active {
+    background: powderblue;
+    border: solid 1px lightskyblue;
+}
+
+.filter-panel .footer{
+    background: rgba(128,128,128,.1);
+    padding: 2px 0;
+    margin-top: 2px;
+    border-radius: 0 0 6px 6px;
+}
+
+.filter-panel .footer .filter-force{
+    text-align: right;
+    margin-right: 6px;
+}
+
+/*------------ Topbar / Goto -------------------*/
+
+.toolbar-top .ctrl-btn-goto:not(.active) ~ .goto-panel{
+    display: none;
+}
+
+.toolbar-top .goto-panel .goto-coordsys {
     text-align: center;
     font-size: 95%;
     outline: 0;
@@ -651,46 +746,45 @@ html, body {
     vertical-align: 0px;
     margin: 0 -4px;
 }
-.settings-bar.top .goto-coord .goto-coordsys:hover {
+.toolbar-top .goto-panel .goto-coordsys:hover {
     cursor: pointer;
 }
 
-.settings-bar.top .goto-coord .goto-coord-txt{
+.toolbar-top .goto-panel .goto-coord-txt{
     text-align: left;
     font-size: 16px;
     border: none;
     border-radius: 0 16px 16px 0;
     outline: 0;
-    vertical-align: 0px;
-    padding: 2px 8px 1px 8px;
-    margin-right: 1px;
+    vertical-align: 1px;
+    padding: 2px 8px 2px 8px;
     width: 7em;
 }
 
-.settings-bar.top .goto-coord .goto-coord-txt.invalid {
+.toolbar-top .goto-panel .goto-coord-txt.invalid {
     background-color: #ffa0a0;
 }
 
-.settings-bar.top .goto-coord .goto-coord-txt::placeholder{
+.toolbar-top .goto-panel .goto-coord-txt::placeholder{
     color: #b0b0b0;
     font-size: smaller;
 }
 
-.settings-bar.top .goto-coord .goto-coord-go:hover {
+.toolbar-top .goto-panel .goto-coord-go:hover {
     cursor: pointer;
 }
-.settings-bar.top .goto-coord .goto-coord-go {
+.toolbar-top .goto-panel .goto-coord-go {
     margin-left: 0px;
     border-radius: 16px;
-    position: absolute;
-    right: 0px;
-    top: 0px;
+    position: absolute;   /* use 'absolute', which help ol-control to fit its width */
+    right: -6px;
+    top: -1px;
     border: solid 1px lightgray;
-    padding: 2px;
-    font-size: 16px;
+    padding: 0px;
+    font-size: 17px;
 }
 
-.settings-bar.top .goto-coord .goto-coord-go svg{
+.toolbar-top .goto-panel .goto-coord-go svg{
     font-size: 12px;
 }
 
@@ -816,7 +910,7 @@ select::-ms-expand {
     color: lightgray;
     font-weight: normal;
     font-style: italic;
-    content: "NAME";
+    content: attr(data-placeholder);
 }
 
 .ol-popup-content {
@@ -829,6 +923,7 @@ select::-ms-expand {
     position: relative;
     white-space: nowrap;
     border-bottom: solid 1px lightgray;
+    padding-bottom: 4px;
     margin-bottom: 5px;
     /*border: solid 1px transparent;*/
     /*border-radius: 8px;*/
@@ -865,7 +960,7 @@ select::-ms-expand {
 
 .color-item {
     padding: 8px;
-    margin: 4px;
+    margin: 4px 4px 0 4px;
     border-radius: 4px;
     border: solid 1px #d0d0d0;
 }
@@ -876,7 +971,7 @@ select::-ms-expand {
 }
 
 .pt-trk-name {
-    vertical-align: 7px;
+    vertical-align: 3px;
     font-weight: bold;
 }
 
@@ -886,6 +981,12 @@ select::-ms-expand {
     right: -25px;
     color: gray;
     font-size: small;
+}
+
+.pt-trk-desc {
+    color: gray;
+    white-space: nowrap;
+    font-size: smaller;
 }
 
 .pt-colorboard {
@@ -905,7 +1006,7 @@ select::-ms-expand {
     margin: 3px;
 }
 /*----------------------------------------------------------------*/
-.pt-wpt {
+.pt-content {
 }
 
 .pt-wpt-tool {
@@ -944,17 +1045,17 @@ select::-ms-expand {
     color: #505050;
 }
 /*----------------------------------------------------------------*/
-.pt-wpt-header,
+.pt-header,
 .pt-coord,
 .pt-ele,
 .pt-time {
     white-space: nowrap;
 }
 
-/*  Set the position of pt-wpt-header on the top of the panel */
+/*  Set the position of pt-header on the top of the panel */
 /*
 .ol-popup { border-top-left-radius: 0; }
-.pt-wpt-header {
+.pt-header {
     position: absolute;
     top: -32px;
     left: 0px;
@@ -964,7 +1065,7 @@ select::-ms-expand {
 }
 */
 
-.pt-wpt-header:not(.hidden) {
+.pt-header:not(.hidden) {
     display: inline-block;
     border-radius: 4px;
     margin-left: 4px;
@@ -1037,9 +1138,16 @@ select::-ms-expand {
     /*width: 9em;*/
 }
 
-.pt-coord, .pt-ele, .pt-time{
+.pt-desc {
+    margin: 1px 0;
     color: gray;
+    white-space: nowrap;
+    font-size: smaller;
+}
+
+.pt-coord, .pt-ele, .pt-time{
     margin: 2px 0;
+    color: gray;
     font-size: 90%;
 }
 
@@ -1084,6 +1192,10 @@ select::-ms-expand {
     margin-top: 3px;
 }
 
+.sym-license {
+    white-space: nowrap;
+}
+
 /********************** PT-Image Active *****************/
 .pt-image.active {
     height: 300px;
@@ -1097,8 +1209,8 @@ select::-ms-expand {
 .pt-image.active .ol-popup-content:hover{
     background-color: rgba(255, 255, 255, 0.5);
 }
-.pt-image.active .ol-popup-content:hover .pt-wpt-header{ background-color: unset; }
-.pt-image.active .pt-wpt-header{ background-color: rgba(255, 255, 255, 0.5); }
+.pt-image.active .ol-popup-content:hover .pt-header{ background-color: unset; }
+.pt-image.active .pt-header{ background-color: rgba(255, 255, 255, 0.5); }
 
 .pt-image.active .pt-coord,
 .pt-image.active .pt-coord-title,
@@ -1121,7 +1233,7 @@ select::-ms-expand {
   }
   
   /* Style the buttons inside the tab */
-  .tab button {
+  .tab .tablink {
     background-color: inherit;
     float: left;
     border: none;
@@ -1133,12 +1245,12 @@ select::-ms-expand {
   }
   
   /* Change background color of buttons on hover */
-  .tab button:hover {
+  .tab .tablink:hover {
     background-color: #ddd;
   }
   
   /* Create an active/current tablink class */
-  .tab button.active {
+  .tab .tablink.active {
     background-color: #ccc;
   }
 
