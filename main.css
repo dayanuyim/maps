@@ -1071,18 +1071,23 @@ select::-ms-expand {
 
 .color-item {
     padding: 8px;
-    margin: 4px 4px 0 4px;
+    margin: 2px;
     border-radius: 4px;
     border: solid 1px #d0d0d0;
 }
 
-.pop-trk-color:hover { cursor: pointer;}
+.color-item:hover{
+    cursor: pointer;
+    padding: 9px;
+    margin: 1px;
+}
+
 .pop-trk-color {
     display: inline-block;
 }
 
 .pop-trk-name {
-    vertical-align: 3px;
+    vertical-align: 4px;
     font-weight: bold;
 }
 
@@ -1105,11 +1110,6 @@ select::-ms-expand {
     grid-template-columns: repeat(4, 1fr);
 }
 
-.pop-colorboard-item:hover{
-    cursor: pointer;
-    padding: 9px;
-    margin: 3px;
-}
 /*----------------------------------------------------------------*/
 
 .pop-pt-tool {
