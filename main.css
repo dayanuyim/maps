@@ -1024,7 +1024,7 @@ select::-ms-expand {
 .pop-desc:not(.hidden) {
     display: inline-block;
     white-space: break-spaces;
-    color: #606060;
+    color: #90a3bb;
     font-size: smaller;
 }
 
@@ -1187,6 +1187,10 @@ select::-ms-expand {
     /*font-weight: bold;*/
     font-size: 20px;
     /*width: 9em;*/
+}
+
+.pop-pt-desc {
+    margin-left: 4px;
 }
 
 .pop-pt-coord, .pop-pt-ele, .pop-pt-time{
