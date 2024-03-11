@@ -923,10 +923,6 @@ html, body {
   \*********************************************************************/
 /* ============== .progbar ==========================*/
 .progbar {
-    font-size: 12px;
-}
-
-.progbar {
     position: relative;
     min-height: 1px;
     color: #202020;
@@ -959,6 +955,7 @@ html, body {
 select, option {
     -webkit-appearance: none; /* WebKit/Chromium */
     -moz-appearance: none; /* Gecko */
+    appearance: none;
 }
   /* Internet Explorer 10–11 and Edge */
 select::-ms-expand {
@@ -1144,15 +1141,15 @@ select::-ms-expand {
 
 .pop-trk-progbar{
     margin: 1px 0 4px 0;
-}
-
-.pop-trk .pop-trk-progbar:not(.active),
-.pop-trk:not(:hover) .pop-trk-progbar {
     font-size: 1px;
 }
-.pop-trk .pop-trk-progbar:not(.active) span,
-.pop-trk:not(:hover) .pop-trk-progbar span{
+.pop-trk-progbar span{
     visibility: hidden;
+}
+
+.pop-trk:hover .pop-trk-progbar.active span{
+    font-size: 12px;
+    visibility: visible;
 }
 
 .pop-colorboard {
