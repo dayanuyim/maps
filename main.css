@@ -862,10 +862,10 @@ html, body {
 /*!************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js!./app/css/ctx-menu.css ***!
   \************************************************************************/
-#ctx-menu {
+.ctx-menu {
     position: fixed;
     z-index: 10000;
-    min-width: 150px;
+    min-width: 185px;
     background: #404040;
     border-radius: 5px;
     /*display: none;*/
@@ -873,17 +873,17 @@ html, body {
     transform-origin: top left;
 }
 
-#ctx-menu.visible {
+.ctx-menu.visible {
     /*display: block;*/
     transform: scale(1);
     transition: transform 100ms ease-in-out;
 }
 
-#ctx-menu .ctx-item-bar {
+.ctx-menu .ctx-item-bar {
     border-top: 1px solid #a0a0a0;
 }
 
-#ctx-menu .ctx-item {
+.ctx-menu .ctx-item {
     padding: 8px 10px;
     font-size: 15px;
     color: #eee;
@@ -891,33 +891,58 @@ html, body {
     /*border-radius: inherit;*/
 }
 
-#ctx-menu .ctx-item:first-child {
+.ctx-menu .ctx-item:only-child {
+    border-radius: 5px !important;
+}
+.ctx-menu .ctx-item:first-child {
     border-radius: 5px 5px 0 0;
 }
-
-#ctx-menu .ctx-item:last-child {
+.ctx-menu .ctx-item:last-child {
     border-radius: 0 0 5px 5px;
 }
 
 
-#ctx-menu .ctx-item a {
+.ctx-menu .ctx-item a {
     color: #eee;
     text-decoration: none;
     white-space: nowrap;
     appearance: button;
+    min-width: 8em;
 }
 
-#ctx-menu .ctx-item:hover {
+.ctx-menu .ctx-item:hover {
     background: #606060;
 }
 
-#ctx-menu .ctx-item i,
-#ctx-menu .ctx-item svg {
+.ctx-menu .ctx-item i,
+.ctx-menu .ctx-item svg {
     display: inline-block;
     width: 16px;
     margin-right: 8px;
 }
 
+.ctx-menu .ctx-item-group {
+    position: relative;
+}
+
+.ctx-menu .ctx-item-group::after {
+    content: "►";
+    font-size: smaller;
+}
+
+.ctx-item-group > .ctx-submenu {
+    z-index: 10001;
+    position: absolute;
+    top: 0;
+    left: calc(100% + 1px);
+    min-width: 8em;
+    background: #404040;
+    border-radius: 0 5px 5px 0;
+}
+
+.ctx-item-group:not(:hover) > .ctx-submenu {
+    display: none;
+}
 /*!*********************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js!./app/css/popup.css ***!
   \*********************************************************************/
