@@ -1003,7 +1003,7 @@ select::-ms-expand {
     left: -50px;
     /*min-width: 225px;*/
     border: 1px solid #cccccc;
-    transition: border 0.5s ease-out;
+    transition: border .5s ease-in;
 }
 .ol-popup:after, .ol-popup:before {
     top: 100%;
@@ -1028,10 +1028,14 @@ select::-ms-expand {
 }
 
 .ol-popup.highlight {
-    border: 1px solid orange;
+    /*border: 1px solid orange;*/
+    border-width: 2px 2px 1px 1px;
+    border-style: solid;
+    border-color: orange;
+    transition: border .5s ease-out;
 }
 
-/* ======================================================================== */ 
+/* ======================================================================== */
 
 /*#pt-popup input,*/
 #pt-popup span[contenteditable]{
@@ -1080,6 +1084,10 @@ select::-ms-expand {
 
 .pop-content {
     padding: 4px 32px 4px 4px;  /* right space for tool buttons */
+}
+
+.pop-content:focus-visible {
+    outline: 0;
 }
 
 .pop-desc:not(.hidden) {
@@ -1411,3 +1419,4 @@ select::-ms-expand {
 .pop-image.active .sym-copyright a:visited{
     color: #202020;
 }
+
