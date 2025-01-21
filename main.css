@@ -1178,15 +1178,25 @@ select::-ms-expand {
 }
 
 .pop-trk-progbar{
+    font-size: 12px;
     margin: 1px 0 4px 0;
-    font-size: 1px;
+}
+
+/* --- hidden text ---- */
+.pop-trk-progbar,
+.pop-trk-progbar div{
+    height: 1px;
 }
 .pop-trk-progbar span{
     visibility: hidden;
 }
 
+/* --- show text ---- */
+.pop-trk:hover .pop-trk-progbar.active,
+.pop-trk:hover .pop-trk-progbar.active div {
+    height: auto;
+}
 .pop-trk:hover .pop-trk-progbar.active span{
-    font-size: 12px;
     visibility: visible;
 }
 
