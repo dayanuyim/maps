@@ -352,6 +352,10 @@
   cursor: move;
 }
 
+.ol-overviewmap .ol-viewport:hover {
+  cursor: pointer;
+}
+
 /*!*********************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js!./app/css/index.css ***!
   \*********************************************************************/
@@ -359,60 +363,62 @@
 * Noto Sans TC (Chinese_traditional) http://www.google.com/fonts/earlyaccess
  */
 /*@import url(//fonts.googleapis.com/earlyaccess/notosanstc.css);*/
+/*
 @font-face {
   font-family: 'Noto Sans TC';
   font-style: normal;
   font-weight: 100;
-  src: url(//fonts.gstatic.com/ea/notosanstc/v1/NotoSansTC-Thin.woff2) format('woff2'),
-       url(//fonts.gstatic.com/ea/notosanstc/v1/NotoSansTC-Thin.woff) format('woff'),
-       url(//fonts.gstatic.com/ea/notosanstc/v1/NotoSansTC-Thin.otf) format('opentype');
+  src: url(https://fonts.gstatic.com/ea/notosanstc/v1/NotoSansTC-Thin.woff2) format('woff2'),
+       url(https://fonts.gstatic.com/ea/notosanstc/v1/NotoSansTC-Thin.woff) format('woff'),
+       url(https://fonts.gstatic.com/ea/notosanstc/v1/NotoSansTC-Thin.otf) format('opentype');
   font-display: fallback;
 }
 @font-face {
   font-family: 'Noto Sans TC';
   font-style: normal;
   font-weight: 300;
-  src: url(//fonts.gstatic.com/ea/notosanstc/v1/NotoSansTC-Light.woff2) format('woff2'),
-       url(//fonts.gstatic.com/ea/notosanstc/v1/NotoSansTC-Light.woff) format('woff'),
-       url(//fonts.gstatic.com/ea/notosanstc/v1/NotoSansTC-Light.otf) format('opentype');
+  src: url(https://fonts.gstatic.com/ea/notosanstc/v1/NotoSansTC-Light.woff2) format('woff2'),
+       url(https://fonts.gstatic.com/ea/notosanstc/v1/NotoSansTC-Light.woff) format('woff'),
+       url(https://fonts.gstatic.com/ea/notosanstc/v1/NotoSansTC-Light.otf) format('opentype');
   font-display: fallback;
 }
 @font-face {
    font-family: 'Noto Sans TC';
    font-style: normal;
    font-weight: 400;
-   src: url(//fonts.gstatic.com/ea/notosanstc/v1/NotoSansTC-Regular.woff2) format('woff2'),
-        url(//fonts.gstatic.com/ea/notosanstc/v1/NotoSansTC-Regular.woff) format('woff'),
-        url(//fonts.gstatic.com/ea/notosanstc/v1/NotoSansTC-Regular.otf) format('opentype');
+   src: url(https://fonts.gstatic.com/ea/notosanstc/v1/NotoSansTC-Regular.woff2) format('woff2'),
+        url(https://fonts.gstatic.com/ea/notosanstc/v1/NotoSansTC-Regular.woff) format('woff'),
+        url(https://fonts.gstatic.com/ea/notosanstc/v1/NotoSansTC-Regular.otf) format('opentype');
   font-display: fallback;
  }
 @font-face {
    font-family: 'Noto Sans TC';
    font-style: normal;
    font-weight: 500;
-   src: url(//fonts.gstatic.com/ea/notosanstc/v1/NotoSansTC-Medium.woff2) format('woff2'),
-        url(//fonts.gstatic.com/ea/notosanstc/v1/NotoSansTC-Medium.woff) format('woff'),
-        url(//fonts.gstatic.com/ea/notosanstc/v1/NotoSansTC-Medium.otf) format('opentype');
+   src: url(https://fonts.gstatic.com/ea/notosanstc/v1/NotoSansTC-Medium.woff2) format('woff2'),
+        url(https://fonts.gstatic.com/ea/notosanstc/v1/NotoSansTC-Medium.woff) format('woff'),
+        url(https://fonts.gstatic.com/ea/notosanstc/v1/NotoSansTC-Medium.otf) format('opentype');
   font-display: fallback;
  }
 @font-face {
   font-family: 'Noto Sans TC';
   font-style: normal;
   font-weight: 700;
-  src: url(//fonts.gstatic.com/ea/notosanstc/v1/NotoSansTC-Bold.woff2) format('woff2'),
-       url(//fonts.gstatic.com/ea/notosanstc/v1/NotoSansTC-Bold.woff) format('woff'),
-       url(//fonts.gstatic.com/ea/notosanstc/v1/NotoSansTC-Bold.otf) format('opentype');
+  src: url(https://fonts.gstatic.com/ea/notosanstc/v1/NotoSansTC-Bold.woff2) format('woff2'),
+       url(https://fonts.gstatic.com/ea/notosanstc/v1/NotoSansTC-Bold.woff) format('woff'),
+       url(https://fonts.gstatic.com/ea/notosanstc/v1/NotoSansTC-Bold.otf) format('opentype');
   font-display: fallback;
  }
 @font-face {
    font-family: 'Noto Sans TC';
    font-style: normal;
    font-weight: 900;
-   src: url(//fonts.gstatic.com/ea/notosanstc/v1/NotoSansTC-Black.woff2) format('woff2'),
-        url(//fonts.gstatic.com/ea/notosanstc/v1/NotoSansTC-Black.woff) format('woff'),
-        url(//fonts.gstatic.com/ea/notosanstc/v1/NotoSansTC-Black.otf) format('opentype');
+   src: url(https://fonts.gstatic.com/ea/notosanstc/v1/NotoSansTC-Black.woff2) format('woff2'),
+        url(https://fonts.gstatic.com/ea/notosanstc/v1/NotoSansTC-Black.woff) format('woff'),
+        url(https://fonts.gstatic.com/ea/notosanstc/v1/NotoSansTC-Black.otf) format('opentype');
   font-display: fallback;
 }
+*/
 
 html, body {
     margin: 0;
@@ -552,6 +558,11 @@ html, body {
     color: #808080;
 }
 
+#setting-layers li .ly-opt-seeable.filtered .seeable-icon-normal,
+#setting-layers li .ly-opt-seeable:not(.filtered) .seeable-icon-filtered {
+    display: none;
+}
+
 #setting-layers li .ly-body {
     display: inline-block;
     min-width: 15.5em;
@@ -589,6 +600,80 @@ html, body {
 }
 #setting-layers li .ly-opt-opacity+i{
     transform: scale(0.8);
+}
+
+/*------------ Layer / SeeFilter -----------------*/
+
+.filter-panel{
+    position: absolute;  /* use absolute since it is under the ol-control */
+    min-width: 10em;
+    padding: 6px;
+    border-radius: 0 4px 8px 8px;
+    margin-top: 1px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    border: solid 1px #d0d0d0;
+}
+
+.filter-panel,
+.filter-panel .filter-row input{
+    background-color: #e8e8e8;
+}
+
+.filter-panel .tabcontent {
+    border-width: 0;
+}
+
+.filter-panel input:checked + label{
+    color: #404040;
+}
+.filter-panel input:not(:checked) + label{
+    color: #808080;
+}
+
+.filter-panel .filter-row {
+    white-space: nowrap;
+}
+
+.filter-panel .filter-row label{
+    display: inline-block;
+    width: 3em;
+}
+.filter-panel .filter-row input{
+    border-width: 0;
+    border-bottom: 1px dashed lightgray;
+    padding: 0px 4px;
+    color: #404040;
+}
+
+.filter-panel .filter-row input:focus-visible{
+    outline: 0;
+    background-color: #fcfcfc;
+}
+
+.filter-panel .filter-row button {
+    display: inline;
+    cursor: pointer;
+    font-size: 10px;
+    vertical-align: 1px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.filter-panel .filter-row button.active {
+    background: powderblue;
+    border: solid 1px lightskyblue;
+}
+
+.filter-panel .footer{
+    background: rgba(128,128,128,.1);
+    padding: 2px 0;
+    margin-top: 2px;
+    border-radius: 0 0 6px 6px;
+}
+
+.filter-panel .footer {
+    text-align: right;
+    margin-right: 6px;
 }
 
 /*----------------------------------------------------------------*/
@@ -631,7 +716,9 @@ html, body {
 }
 
 .toolbar .ctrl-btn {
+    cursor: pointer;
     display: inline-block;
+    vertical-align: top;
 }
 
 .toolbar .ctrl-btn.enabled {
@@ -657,80 +744,17 @@ html, body {
 }
 
 .toolbar-top .ol-control:nth-child(2) { left: 2em; }
+/*
 .toolbar-top .ol-control:nth-child(3) { left: 4em; }
 .toolbar-top .ol-control:nth-child(4) { left: 6em; }
 .toolbar-top .ol-control:nth-child(5) { left: 8em; }
-
-
-/*------------ Topbar / Filter -----------------*/
-
-.toolbar-top .ctrl-btn-filter:not(.active) ~ .filter-panel{
-    display: none;
-}
-
-.filter-panel{
-    position: absolute;  /* use absolute since it is under the ol-control */
-    min-width: 10em;
-    padding: 6px;
-    border-radius: 0 4px 8px 8px;
-    margin-top: 1px;
-}
-
-.filter-panel .tabcontent {
-    border-width: 0;
-}
-
-.filter-panel input:checked + label{
-    color: #404040;
-}
-.filter-panel input:not(:checked) + label{
-    color: #808080;
-}
-
-.filter-panel .filter-row {
-    white-space: nowrap;
-}
-
-.filter-panel .filter-row label{
-    display: inline-block;
-    width: 3em;
-}
-.filter-panel .filter-row input{
-    border-width: 0;
-    border-bottom: 1px dashed lightgray;
-    padding: 0px 4px;
-    color: #404040;
-}
-
-.filter-panel .filter-row input:focus-visible{
-    outline: 0;
-    background-color: #f8f8f8;
-}
-
-.filter-panel .filter-row button {
-    display: inline;
-    font-size: 10px;
-    vertical-align: 1px;
-}
-
-.filter-panel .filter-row button.active {
-    background: powderblue;
-    border: solid 1px lightskyblue;
-}
-
-.filter-panel .footer{
-    background: rgba(128,128,128,.1);
-    padding: 2px 0;
-    margin-top: 2px;
-    border-radius: 0 0 6px 6px;
-}
-
-.filter-panel .footer .filter-force{
-    text-align: right;
-    margin-right: 6px;
-}
+*/
 
 /*------------ Topbar / Goto -------------------*/
+
+.toolbar-top .goto-panel{
+    display: inline-block;
+}
 
 .toolbar-top .ctrl-btn-goto:not(.active) ~ .goto-panel{
     display: none;
@@ -745,39 +769,69 @@ html, body {
     background: rgba(0,0,0,0.4);
     padding: 3px 4px 2px 4px;;
     vertical-align: 0px;
-    margin: 0 -4px;
+    margin: 0;
 }
 .toolbar-top .goto-panel .goto-coordsys:hover {
     cursor: pointer;
 }
 
-.toolbar-top .goto-panel .goto-coord-txt{
+/* not show "Go" button when "findspot" is selected, since it is triggered by clicking the spot in the list */
+.toolbar-top .goto-panel .goto-coordsys:has(option[value="findspot"]:checked) ~ .goto-coord-go {
+    display: none;
+}
+
+.toolbar-top .goto-panel .goto-txt{
     text-align: left;
     font-size: 16px;
     border: none;
-    border-radius: 0 16px 16px 0;
+    border-radius: 0 4px 4px 0;
     outline: 0;
     vertical-align: 1px;
     padding: 2px 8px 2px 8px;
     width: 7em;
 }
 
-.toolbar-top .goto-panel .goto-coord-txt.invalid {
+.toolbar-top .goto-panel .goto-txt.invalid {
     background-color: #ffa0a0;
 }
 
-.toolbar-top .goto-panel .goto-coord-txt::placeholder{
+.toolbar-top .goto-panel .goto-txt::placeholder{
     color: #b0b0b0;
     font-size: smaller;
 }
 
+/* input text is empty, then hides aux button */
+.toolbar-top .goto-panel .goto-txt:placeholder-shown + .goto-aux button{
+    display: none;
+}
+
+.toolbar-top .goto-panel .goto-aux {
+    position: absolute;
+    top: 2px;
+    right: 4px;
+}
+
+.toolbar-top .goto-panel .goto-aux button{
+    cursor: pointer;
+    color: white;
+    background: #666;
+    display: inline;
+    width: 3.5em;
+    font-size: 12px;
+    font-weight: 300;
+    padding: 0 4px;
+    border: dotted 1px #ddd;
+    border-radius: 10px;
+}
+
+/*
 .toolbar-top .goto-panel .goto-coord-go:hover {
     cursor: pointer;
 }
 .toolbar-top .goto-panel .goto-coord-go {
     margin-left: 0px;
     border-radius: 16px;
-    position: absolute;   /* use 'absolute', which help ol-control to fit its width */
+    position: absolute;   /* use 'absolute', which help ol-control to fit its width *//*
     right: -6px;
     top: -1px;
     border: solid 1px lightgray;
@@ -788,6 +842,75 @@ html, body {
 .toolbar-top .goto-panel .goto-coord-go svg{
     font-size: 12px;
 }
+*/
+
+/*------------- Topbar / Goto / Spots ----------------*/
+.goto-panel .goto-spot-list {
+    list-style: none;
+    padding: 0;
+    margin: 1px 0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background: rgba(255, 255, 255, .6);
+    overflow: scroll;
+    max-height: 90vh;
+}
+.goto-panel .goto-spot-list:not(.active) {
+    display: none;
+}
+.goto-panel .goto-spot-item {
+    padding: 6px 12px 6px 6px;  /* padding more in right for scrollbar */
+    border-bottom: 1px solid #eee;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.goto-panel .goto-spot-item:hover {
+    background-color: #f0f7ff;
+}
+.goto-panel .goto-spot-item:last-child {
+    border-bottom: none;
+}
+
+.goto-panel .goto-spot-name {
+    font-weight: bold;
+    color: #333;
+}
+.goto-panel .goto-spot-info{
+    float: right;
+    font-size: 0.9em;
+    color: #666;
+}
+
+.goto-panel .goto-spot-info span{
+    display: inline-block;
+}
+
+.goto-panel .goto-spot-info-ele{
+    min-width: 5.5em;
+}
+.goto-panel .goto-spot-info-dist{
+    min-width: 6.5em;
+}
+.goto-panel .goto-spot-info-dir{
+    min-width: 1em;
+}
+
+.goto-panel button.goto-spot-more {
+    width: 100%;
+    padding: 10px;
+    background: #eee;
+    border: none;
+    cursor: pointer;
+    margin-top: 1px;
+}
+.goto-panel button.goto-spot-more:hover {
+    background: #ddd;
+}
+.goto-panel button.goto-spot-more:not(.active) {
+    display: none;
+}
+
 
 /*============= Map ======================*/
 
@@ -824,7 +947,7 @@ html, body {
 .tab {
     overflow: hidden;
     border: 1px solid #ccc;
-    background-color: #f1f1f1;
+    background-color: rgba(255,255,255,.3);
   }
   
   /* Style the buttons inside the tab */
@@ -1325,7 +1448,9 @@ select::-ms-expand {
     cursor: pointer;
 }
 
-.pop-pt-coord-title option[value$="_6"]{
+.pop-pt-coord-title option[value="twd67_6"],
+.pop-pt-coord-title option[value="twd97_6"],
+.pop-pt-coord-title option[value="findspot"]{
     display: none;
 }
 
@@ -1380,7 +1505,7 @@ select::-ms-expand {
 .pop-symboard-item-img {
     width: 32px;
     height: 32px;
-    background-image: url(a04d235aca4ee0159cd5.png);
+    background-image: url(ea11c5c07693dfab1ba3.png);
 }
 
 .pop-symboard-footer{

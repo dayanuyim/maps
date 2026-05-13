@@ -1391,6 +1391,22 @@
       "url": "https://www.flaticon.com/"
     }
   },
+  "dot": {
+    "filename": "Dot.png",
+    "name": "Dot",
+    "license": {
+      "title": "Creative Commons BY 3.0",
+      "url": "https://creativecommons.org/licenses/by/3.0/"
+    },
+    "maker": {
+      "title": "Pixel perfect",
+      "url": "https://www.flaticon.com/authors/pixel-perfect"
+    },
+    "provider": {
+      "title": "Flaticon",
+      "url": "https://www.flaticon.com/"
+    }
+  },
   "dot, white": {
     "filename": "Dot, White.png",
     "name": "Dot, White",
@@ -3890,6 +3906,22 @@
   "square, red": {
     "filename": "Square, Red.png",
     "name": "Square, Red",
+    "license": {
+      "title": "Creative Commons BY 3.0",
+      "url": "https://creativecommons.org/licenses/by/3.0/"
+    },
+    "maker": {
+      "title": "Freepik",
+      "url": "https://www.Freepik.com/"
+    },
+    "provider": {
+      "title": "Flaticon",
+      "url": "https://www.flaticon.com/"
+    }
+  },
+  "star": {
+    "filename": "Star.png",
+    "name": "Star",
     "license": {
       "title": "Creative Commons BY 3.0",
       "url": "https://creativecommons.org/licenses/by/3.0/"
