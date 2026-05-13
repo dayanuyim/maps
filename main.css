@@ -852,7 +852,7 @@ html, body {
     border: 1px solid #ddd;
     border-radius: 4px;
     background: rgba(255, 255, 255, .6);
-    overflow: scroll;
+    overflow: auto;
     max-height: 90vh;
 }
 .goto-panel .goto-spot-list:not(.active) {
