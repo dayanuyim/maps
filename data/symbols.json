@@ -3247,22 +3247,6 @@
       "url": "https://www.flaticon.com/"
     }
   },
-  "poi": {
-    "filename": "POI.png",
-    "name": "POI",
-    "license": {
-      "title": "Creative Commons BY 3.0",
-      "url": "https://creativecommons.org/licenses/by/3.0/"
-    },
-    "maker": {
-      "title": "Freepik",
-      "url": "https://www.Freepik.com/"
-    },
-    "provider": {
-      "title": "Flaticon",
-      "url": "https://www.flaticon.com/"
-    }
-  },
   "parachute area": {
     "filename": "Parachute Area.png",
     "name": "Parachute Area",
@@ -3401,6 +3385,38 @@
     "maker": {
       "title": "Freepik",
       "url": "https://www.Freepik.com/"
+    },
+    "provider": {
+      "title": "Flaticon",
+      "url": "https://www.flaticon.com/"
+    }
+  },
+  "poi": {
+    "filename": "POI.png",
+    "name": "POI",
+    "license": {
+      "title": "Creative Commons BY 3.0",
+      "url": "https://creativecommons.org/licenses/by/3.0/"
+    },
+    "maker": {
+      "title": "Freepik",
+      "url": "https://www.Freepik.com/"
+    },
+    "provider": {
+      "title": "Flaticon",
+      "url": "https://www.flaticon.com/"
+    }
+  },
+  "point": {
+    "filename": "Point.png",
+    "name": "Point",
+    "license": {
+      "title": "Creative Commons BY 3.0",
+      "url": "https://creativecommons.org/licenses/by/3.0/"
+    },
+    "maker": {
+      "title": "msidiqf",
+      "url": "https://www.flaticon.com/authors/msidiqf"
     },
     "provider": {
       "title": "Flaticon",

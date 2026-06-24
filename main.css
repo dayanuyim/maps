@@ -459,6 +459,18 @@ html, body {
 }
 */
 
+/*================== Overlay ===================*/
+#trkseg-pt {
+  width: 32px;
+  height: 32px;
+  background-image: url(0a1b5ae569eaa7888300.svg);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: contain;
+}
+
+/*============ Settings Board ==================*/
+
 /* Remove input[type=number] Arrows/Spinners */
 /* Chrome, Safari, Edge, Opera */
 #setting-layers input::-webkit-outer-spin-button,
@@ -469,9 +481,8 @@ html, body {
 /* Firefox */
 #setting-layers input[type=number] {
   -moz-appearance:textfield;
+  appearance:textfield;
 }
-
-/*============ Settings Board ==================*/
 
 .settings {
     position: absolute;
@@ -712,7 +723,7 @@ html, body {
 
 .toolbar{
     position: relative;
-    z-index: 9;   /* prvent being covered by the map */
+    z-index: 7;   /* prvent being covered by the map */
 }
 
 .toolbar .ctrl-btn {
@@ -911,6 +922,15 @@ html, body {
     display: none;
 }
 
+/*============= Toolbar Bottom ======================*/
+
+.toolbar-bottom{
+    position: fixed;
+    bottom: 1.5em;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
 
 /*============= Map ======================*/
 
@@ -921,14 +941,19 @@ html, body {
     width: 100%;
 }
 
-.ol-overviewmap
-.ol-overviewmap-map{
+.ol-overviewmap {
+    bottom: 1.5em;
+}
+.ol-overviewmap .ol-overviewmap-map{
     width: 25vw;
     height: 25vh;
 }
 
+.ol-scale-bar,
 .ol-scale-line {
-    left: calc(50% - 50px);
+    left: calc(100% - 16px);
+    bottom: 1.5em;
+    transform: translateX(-100%);
 }
 
 .save-cookie {
@@ -1121,7 +1146,7 @@ select::-ms-expand {
     filter: drop-shadow(0 1px 4px rgba(0,0,0,0.2));
     /*padding: 15px 2em 15px 15px;*/
     padding: 2px;
-    border-radius: 10px;
+    border-radius: 8px;
     bottom: 12px;
     left: -50px;
     /*min-width: 225px;*/
@@ -1183,14 +1208,53 @@ select::-ms-expand {
     content: attr(data-placeholder);
 }
 
+/*
+// 使用內建的 resizer
 .pop-resizer.active:not(.disabled) {
-    transform: rotateX(180deg);   /*resize cursor in top-right corner */
+    transform: rotateX(180deg);   //resize cursor in top-right corner
     resize: both;
     overflow: hidden;
 }
-
 .pop-resizer.active:not(.disabled) .pop-resizer-content{
     transform: rotateX(180deg);
+}
+*/
+
+.pop-resizer {
+  position: relative;
+}
+
+/* 自訂的右上角 resizer */
+.pop-resizer.active:not(.disabled) .pop-resizer-handler {
+    position: absolute;
+    top: 0; /* 貼齊最邊緣，以便和外層圓角融合 */
+    right: 0;
+    width: 16px; /* 稍微放大一點，更容易抓取 */
+    height: 16px;
+    cursor: nesw-resize;
+    z-index: 10;
+
+    /* 💡 核心優化：利用多重漸層，畫出「深灰 + 白色高光」的立體雙色刻痕 */
+    background: repeating-linear-gradient(45deg,
+            transparent,
+            transparent 2px,
+            rgba(0, 0, 0, 0.35) 2px, /* 深色陰影線 */
+            rgba(0, 0, 0, 0.35) 3px,
+            rgba(255, 255, 255, 0.7) 3px, /* 白色高光線，創造凹凸刻痕感 */
+            rgba(255, 255, 255, 0.7) 4px);
+
+    /* 💡 遮罩：切出右上三角形，並為右上角加上符合主容器的圓角（假設外層是 8px） */
+    border-top-right-radius: 8px;
+    clip-path: polygon(0 0, 100% 0, 100% 100%);
+
+    /* 互動效果 */
+    opacity: 0.7;
+    transition: all 0.2s ease;
+}
+
+.pop-resizer.active:not(.disabled) .pop-resizer-handler:hover {
+    opacity: 1;
+    transform: scale(1.1);
 }
 
 .pop-closer {
@@ -1358,7 +1422,7 @@ select::-ms-expand {
 
 .pop-pt-tool button:nth-child(-n+2) {
     position: absolute;
-    right: -24px;
+    right: -16px;
     top: 0px;
 }
 
@@ -1505,7 +1569,7 @@ select::-ms-expand {
 .pop-symboard-item-img {
     width: 32px;
     height: 32px;
-    background-image: url(ea11c5c07693dfab1ba3.png);
+    background-image: url(7b7c0a3dfb1e5a62b514.png);
 }
 
 .pop-symboard-footer{
@@ -1555,3 +1619,133 @@ select::-ms-expand {
     color: #202020;
 }
 
+/*!*************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./app/tool-eleprof/tool-eleprof.css ***!
+  \*************************************************************************************/
+/* --------- details: open upward -------------*/
+
+/* Container layout styling */
+details.open-upward {
+  display: inline-flex;
+  flex-direction: column-reverse; /* Flips content to stack above summary */
+}
+
+/* Optional: Rotate the default arrow to point up when open */
+details.open-upward[open] summary::-webkit-details-marker,
+details.open-upward[open] summary::marker {
+  transform: rotate(-180deg);
+}
+
+/* --------- details: animation -------------*/
+
+:root { interpolate-size: allow-keywords; }
+
+.tool-eleprof details {
+    position: relative;  /* for header absolute*/
+}
+
+/* 針對 details 內容進行動畫設定 */
+.tool-eleprof details::details-content {
+    height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition:
+      height 0.3s ease,
+      opacity 0.3s ease,
+      content-visibility 0.3s ease allow-discrete; /* 關鍵：讓收合動畫播放完才真正隱藏 */
+}
+
+/* 展開狀態的樣式 */
+.tool-eleprof details[open]::details-content {
+    height: auto;
+    opacity: 1;
+}
+
+/* --------- summary: text and align -------------*/
+.tool-eleprof details summary{
+    text-align: center;
+    align-items: center;
+    list-style-position: inside; /* Keeps the arrow next to the centered text */
+    list-style: none;
+    /*cursor: pointer;*/
+    pointer-events: none;
+}
+
+/* only children of summary can trigger the details content */
+.tool-eleprof details summary * {
+    cursor: pointer;
+    pointer-events: auto;
+}
+
+/* --------- control button --------*/
+
+/*
+.toolbar-bottom details summary::before{
+    content: "\f1fe";
+    font: var(--fa-font-solid);
+}
+*/
+
+.tool-eleprof details summary .ctrl-btn {
+    color: #666666;
+    background: rgba(255,255,255,.5);
+    width: 1em;
+    height: 1em;
+    padding: 4px;
+    vertical-align: middle;  /* erase the gap between summary and details-content */
+    border-style: double;
+    border-color: lightgray;
+    border-width: 1px 1px 4px 1px;
+    border-radius: 4px;
+}
+
+.tool-eleprof details[open] summary .ctrl-btn {
+    color: steelblue;
+    border-width: 1px 1px 0 1px;
+    border-radius: 4px 4px 0 0;
+}
+
+/* ---- style for open-upward ------*/
+.tool-eleprof details.open-upward summary .ctrl-btn {
+    border-width: 4px 1px 1px 1px;
+}
+
+.tool-eleprof details[open].open-upward summary .ctrl-btn {
+    border-width: 0 1px 1px 1px;
+    border-radius: 0 0 4px 4px;
+}
+
+/* --------- header -------------*/
+
+.tool-eleprof details header {
+    position: absolute;  /* put on the the next element */
+    /* left: 1px; */
+    /* top: 0px; */
+    font-family: sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    color: #303030;
+    padding: 4px 8px;
+    z-index: 6;
+}
+
+.tool-eleprof details header .subtitle {
+    font-size: 14px;
+    color: #808080;
+}
+/* --------- canvas -------------*/
+.tool-eleprof details canvas {
+  display: block; /* Removes the text-line alignment gap completely */
+}
+
+.tool-eleprof details canvas:not(.active){
+    pointer-events: none;
+}
+
+.tool-eleprof details canvas{
+    /*background: rgba(255, 232, 232, .7);*/
+    border: solid 1px #d0d0d0;
+    border-radius: 8px;
+    box-sizing: border-box;
+    z-index: 5;
+}

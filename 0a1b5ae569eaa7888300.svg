@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
+  <defs>
+    <!-- 輕微的陰影效果，讓白邊地標在任何背景上都能清晰浮現 -->
+    <filter id="markerShadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#000000" flood-opacity="0.25" />
+    </filter>
+  </defs>
+
+  <!-- 將整個圖形置於畫布中心 (100, 100) 處 -->
+  <g transform="translate(100, 100)">
+
+    <!-- 1. 後方：動態收縮/復原的脈動光環 -->
+    <g>
+      <!-- 縮放動畫：從 1.8 倍大「收縮」至 1.0 倍，再「復原」至 1.8 倍 -->
+      <animateTransform
+        attributeName="transform"
+        type="scale"
+        values="1.8; 1.0; 1.8"
+        keyTimes="0; 0.5; 1"
+        dur="3s"
+        repeatCount="indefinite"
+        calcMode="spline"
+        keySplines="0.4 0 0.2 1; 0.4 0 0.2 1"
+      />
+      <!-- 透明度同步動畫：外圍大時較淡，縮至中心時與主體融合 -->
+      <animate
+        attributeName="opacity"
+        values="0.15; 0.8; 0.15"
+        keyTimes="0; 0.5; 1"
+        dur="3s"
+        repeatCount="indefinite"
+        calcMode="spline"
+        keySplines="0.4 0 0.2 1; 0.4 0 0.2 1"
+      />
+      <!-- 脈動圈：採用相同的琥珀色核心與白邊 -->
+      <circle cx="0" cy="0" r="50" fill="#FF8F00" stroke="#FFFFFF" stroke-width="8" />
+    </g>
+
+    <!-- 2. 前方：動態主體圓球（與背景同步微幅收縮，增加整體呼吸動態感） -->
+    <g filter="url(#markerShadow)">
+      <!-- 縮放動畫：從 1.15 倍稍微收縮至 0.85 倍，再復原至 1.15 倍，與背景完美同步 -->
+      <animateTransform
+        attributeName="transform"
+        type="scale"
+        values="1.15; 0.85; 1.15"
+        keyTimes="0; 0.5; 1"
+        dur="3s"
+        repeatCount="indefinite"
+        calcMode="spline"
+        keySplines="0.4 0 0.2 1; 0.4 0 0.2 1"
+      />
+      <circle cx="0" cy="0" r="50" fill="#FF8F00" stroke="#FFFFFF" stroke-width="8" />
+    </g>
+  </g>
+</svg>
