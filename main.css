@@ -587,12 +587,17 @@ html, body {
     margin: 0;
     color: lightgrey;
 }
+#setting-layers li button.ly-ctrl:hover {
+    cursor: pointer;
+}
 #setting-layers li:not(:hover) button.ly-ctrl:not(.enabled) {
     visibility: hidden;
 }
-#setting-layers li button.ly-ctrl:hover {
+#setting-layers li button.ly-ctrl:not(.enabled):hover {
+    color: #adcafc;
+}
+#setting-layers li button.ly-ctrl.enabled:hover {
     color: cornflowerblue;
-    cursor: pointer;
 }
 #setting-layers li button.ly-ctrl.enabled {
     color: steelblue;
@@ -1514,6 +1519,8 @@ select::-ms-expand {
 
 .pop-pt-coord-title option[value="twd67_6"],
 .pop-pt-coord-title option[value="twd97_6"],
+.pop-pt-coord-title option[value="twd67_8"],
+.pop-pt-coord-title option[value="twd97_8"],
 .pop-pt-coord-title option[value="findspot"]{
     display: none;
 }
