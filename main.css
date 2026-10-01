@@ -1060,7 +1060,7 @@ html, body {
     text-decoration: none;
     white-space: nowrap;
     appearance: button;
-    min-width: 8em;
+    min-width: 10em;
 }
 
 .ctx-menu .ctx-item:hover {
