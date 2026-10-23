@@ -728,7 +728,7 @@ html, body {
 
 .toolbar{
     position: relative;
-    z-index: 7;   /* prvent being covered by the map */
+    z-index: 5;   /* prvent being covered by the map */
 }
 
 .toolbar .ctrl-btn {
@@ -1072,6 +1072,15 @@ html, body {
     display: inline-block;
     width: 16px;
     margin-right: 8px;
+}
+
+.ctx-menu .ctx-item a .item-subicon{
+    font-size: 10px;
+    margin-left: 8px;
+}
+
+.ctx-menu .ctx-item a:not(.sub) .item-subicon{
+    display: none;
 }
 
 .ctx-menu .ctx-item-group {
@@ -1626,6 +1635,55 @@ select::-ms-expand {
     color: #202020;
 }
 
+/*!***********************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./app/css/ol-zoomslider-thumb.css ***!
+  \***********************************************************************************/
+
+/* Tooltip 氣泡樣式（預設隱藏） */
+.ol-zoomslider-thumb-text {
+  position: absolute;
+  left: 34px; /* 移到滑桿右側，避免擋住滑桿 */
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #007bff;
+  color: white;
+  padding: 4px 8px;
+  font-size: 12px;
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+  border-radius: 4px;
+  white-space: nowrap;
+  pointer-events: none; /* 避免干擾滑鼠事件 */
+  user-select: none;
+  
+  /* 動態特效：預設透明度為 0 且稍微往左靠（做出浮現位移感） */
+  opacity: 0;
+  margin-left: -5px;
+  transition: opacity 0.2s ease, margin-left 0.2s ease;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+/* Tooltip 的小箭頭 */
+.ol-zoomslider-thumb-text::before {
+  content: '';
+  position: absolute;
+  right: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent #007bff transparent transparent;
+}
+
+/* 觸發條件：
+   1. 當滑鼠 hover 滑桿本體時 
+   2. 當使用者正在拖曳滑塊時（透過 JS 動態加上 .is-dragging 類別）
+*/
+.ol-zoomslider:hover .ol-zoomslider-thumb-text,
+.ol-zoomslider-thumb.is-dragging .ol-zoomslider-thumb-text {
+  opacity: 1;
+  margin-left: 0;
+}
 /*!*************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js!./app/tool-eleprof/tool-eleprof.css ***!
   \*************************************************************************************/
@@ -1755,4 +1813,350 @@ details.open-upward[open] summary::marker {
     border-radius: 8px;
     box-sizing: border-box;
     z-index: 5;
+}
+/*!*******************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./app/tool-areamarker/tool-areamarker.css ***!
+  \*******************************************************************************************/
+:root {
+    --text-color: #202020;
+    --input-color: #202020;
+    --input-bgcolor: rgba(0,0,0,0.1);
+    --marker-bgcolor: rgba(255,255,255,0.3);
+}
+
+.tool-areamarker {
+    z-index: 7;
+    position: fixed;
+    transition: top 0.3s ease, left 0.3s ease;
+    top: 100px;
+    left: 100px;
+    color: var(--text-color);
+    box-sizing: border-box;
+    padding: 1em;
+    min-width: 100px;
+    min-height: 100px;
+    overflow: hidden;
+    resize: both;
+
+    /* glass-like panel */
+    background-color: rgba(0, 0, 0, 0.15);
+    border: 1px #a0a0a0 solid;
+    border-radius: 3px;
+    box-shadow: 0 2px 1px 0 rgba(255, 255, 255, 0.4) inset, 0 1px 1px 1px rgba(0, 0, 0, 0.5);
+}
+
+.tool-areamarker.closing {
+  transform: translateY(300px) rotate(-75deg);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.tool-areamarker:before,
+.tool-areamarker:after{
+  content: "";
+  position: absolute;
+  background: rgba(255, 255, 255, 0.1);
+  width: 42px;
+  height: 100%;
+  top: -10px;
+  right: 50px;
+  transform: rotate(50deg);
+  transform-origin: top center;
+  filter: blur(5px);
+  pointer-events: none;  /* ignore mouse hover */
+}
+
+.tool-areamarker:after{
+  right: -20px;
+  width: 20px;
+}
+
+.tool-areamarker .areamarker-content {
+    padding: 4px;
+    border-radius: 3px;
+}
+
+/* ---------------- Panel Hover --------------------- */
+
+.tool-areamarker.doing,
+.tool-areamarker:has(.areamarker-content:hover) {
+    background: rgba(255,255,255,0.7);
+    transition: background-color 1.5s ease-out;
+}
+
+/* transition 動畫要發生在 hover 時，而非 not hover，故不能反過來寫
+.tool-areamarker:not(.doing):not(:has(.areamarker-content:hover)) {
+    background-color: rgba(0, 0, 0, 0.15);
+    transition: background-color 1.5s ease-out;
+}
+*/
+
+/* ---------------- Panel 精簡模式 ------------------ */
+
+.tool-areamarker:not(.doing) .areamarker-content:not(:hover) *,
+.tool-areamarker:not(.doing):has(.areamarker-content:not(:hover)) .areamarker-header,
+.tool-areamarker:not(.doing):has(.areamarker-content:not(:hover)) .areamarker-footer {
+    visibility: hidden;
+}
+.tool-areamarker:not(.doing) .areamarker-content:not(:hover) .areamarker-coord,
+.tool-areamarker:not(.doing) .areamarker-content:not(:hover) .areamarker-xspan,
+.tool-areamarker:not(.doing) .areamarker-content:not(:hover) .areamarker-yspan {
+    color: #202020;
+    visibility: visible;
+    pointer-events: none;  /* not able to trigger hover */
+    background: var(--marker-bgcolor);
+}
+
+.tool-areamarker:not(.doing) .areamarker-content:not(:hover) .areamarker-coord {
+    position: absolute;
+    top: 0;
+    left: 0;
+    text-align: left;
+}
+.tool-areamarker:not(.doing) .areamarker-content:not(:hover) .areamarker-coord:has(+ .locked) {
+    margin-left: 28px;
+}
+
+.tool-areamarker:not(.doing) .areamarker-content:not(:hover) .areamarker-xspan {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.tool-areamarker:not(.doing) .areamarker-content:not(:hover) .areamarker-yspan {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+}
+
+
+/*****************************************************/
+
+.tool-areamarker.movable {
+    cursor: grab;
+}
+.tool-areamarker.movable.dragging {
+    cursor: grabbing;
+}
+
+.tool-areamarker.movable .areamarker-anchor {
+    visibility: hidden;
+}
+
+.tool-areamarker .areamarker-footer {
+    height: 100px;
+}
+
+.tool-areamarker .areamarker-header-title {
+    font-size: 1.5em;
+    font-weight: bold;
+    text-align: center;
+    padding: 0 0 4px 4px;
+}
+
+.tool-areamarker .areamarker-anchor{
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 2px 0;
+    color: rgba(0, 0, 0, 0.5);
+    font-size: 20px;
+    transform: rotate(15deg);
+}
+
+.tool-areamarker {
+    /* close animation */
+    transform-origin: calc(100% - 12px) 12px;   /* the center of closer button */
+    transition:
+        transform 1.0s ease-in,
+        opacity 1.0s ease-in;
+}
+
+.tool-areamarker .areamarker-closer{
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0;
+    margin: 4px;
+    background: transparent;
+    border: none;
+    font-size: 20px;
+    color: #484848;
+}
+
+.tool-areamarker .areamarker-closer:hover{
+    color: #303030;
+    cursor: pointer;
+    animation: spin 1.5s linear;
+}
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(-360deg);
+    }
+}
+
+.tool-areamarker p,
+.tool-areamarker span,
+.tool-areamarker header {
+    text-wrap: nowrap;
+}
+
+.tool-areamarker .areamarker-opt {
+    display: inline-block;
+    margin-right: 0.5em;
+    width: 3em;
+    font-size: 1.1em;
+    font-weight: bold;
+    text-align: right;
+}
+
+/* TODO 不支援的 coordsys 先 disable */
+.areamarker-coordsys option[value="wgs84"],
+.areamarker-coordsys option[value="taipower"],
+.areamarker-coordsys option[value="twd67_6"],
+.areamarker-coordsys option[value="twd97_6"],
+.areamarker-coordsys option[value="twd67_8"],
+.areamarker-coordsys option[value="twd97_8"],
+.areamarker-coordsys option[value="findspot"]{
+    display: none;
+}
+
+.tool-areamarker input {
+    color: var(--input-color);
+    background: var(--input-bgcolor);
+    border-width: 0 0 0px 0;
+    border-radius: 3px;
+    text-align: center;
+    text-shadow: px 1px 2px rgba(0, 0, 0, 0.5);
+    /*-webkit-text-stroke: 0.5px #404040;*/
+    font-size: 18px;
+}
+
+.tool-areamarker input:focus {
+    outline: none;
+    /*background-color: rgba(255,255,255,0.5);*/
+}
+
+.tool-areamarker input.invalid {
+    background-color: rgba(255,64,64,0.3);
+}
+
+.tool-areamarker input[type="text"] {
+    border-width: 0 0 1px 0;
+}
+
+.tool-areamarker input[type="number"] {
+    text-align: center;
+    width: 4.5em;
+}
+
+.tool-areamarker select {
+    border: none;
+    outline: none;
+    appearance: none;
+    padding: 4px;
+    border-radius: 4px;
+    color: var(--text-color);
+    background: var(--input-bgcolor);
+    font-size: 16px;
+}
+
+.tool-areamarker select:focus {
+    border: none;
+    outline: none;
+    appearance: none;
+    cursor: pointer;
+}
+
+.areamarker-lock:hover{
+    cursor: pointer;
+}
+.areamarker-lock.locked .fa-lock-open { display: none; }
+.areamarker-lock:not(.locked) .fa-lock { display: none; }
+.areamarker-lock .fa-lock-open { color: green; }
+.areamarker-lock .fa-lock { color: red; }
+
+.areamarker-coord {
+    padding-left: 6px;
+    width: 10.5em;
+}
+
+.tool-areamarker .areamarker-content button {
+    padding: 8px;
+    margin-right: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    color: var(--text-color);
+    background-color: transparent;
+    border: 1px #404040 solid;
+    border-radius: 4px;
+    transition: background-color 1.0s;
+}
+
+.tool-areamarker .areamarker-content button:not(:disabled):hover {
+    cursor: pointer;
+    background-color: rgba(0,0,0, 0.1);
+}
+
+.tool-areamarker .areamarker-content button:disabled {
+    cursor: not-allowed;
+    color: #808080;
+}
+
+/* abort button */
+.tool-areamarker .areamarker-content button.areamarker-abort {
+    color: rgb(151, 47, 47);
+    background-color: rgba(128, 0, 0, .1);
+}
+.tool-areamarker:not(.doing) .areamarker-content button.areamarker-abort {
+    display: none;
+}
+
+
+/* Progress Bar ---------------------------- */
+
+.areamarker-prog {
+    max-width: 462px;
+    box-sizing: border-box;
+    padding: 8px;
+}
+
+.areamarker-prog-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 6px;
+}
+
+.areamarker-prog-status {
+    font-size: 16px;
+}
+
+.areamarker-prog-percent {
+    font-size: 16px;
+    font-weight: 700;
+    font-variant-numeric: slashed-zero;
+}
+
+.areamarker-prog-percent:after {
+    content: "%";
+}
+
+.areamarker-prog-bar {
+    width: 100%
+}
+
+.areamarker-prog-msg {
+    white-space: pre;
+    min-height: 40px;
+    margin: 8px 0 0;
+    color: #202020;
+    font-size: 14px;
+    line-height: 1.6;
 }
