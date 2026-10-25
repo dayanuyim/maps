@@ -2085,6 +2085,12 @@ details.open-upward[open] summary::marker {
     width: 10.5em;
 }
 
+.areamarker-filetype:not(:has(option:checked[value="pdf"])) + .areamarker-pagesize {
+    display: none;
+}
+
+/* Button ---------------------------------- */
+
 .tool-areamarker .areamarker-content button {
     padding: 8px;
     margin-right: 8px;
