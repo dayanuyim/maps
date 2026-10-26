@@ -2055,10 +2055,11 @@ details.open-upward[open] summary::marker {
 }
 
 .tool-areamarker select {
+    cursor: pointer;
     border: none;
     outline: none;
     appearance: none;
-    padding: 4px;
+    padding: 2px 4px;
     border-radius: 4px;
     color: var(--text-color);
     background: var(--input-bgcolor);
@@ -2085,7 +2086,7 @@ details.open-upward[open] summary::marker {
     width: 10.5em;
 }
 
-.areamarker-filetype:not(:has(option:checked[value="pdf"])) + .areamarker-pagesize {
+#areamarker-filetypes-pdf:not(:checked) ~ .areamarker-pagesize {
     display: none;
 }
 
