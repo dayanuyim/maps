@@ -109,7 +109,7 @@ export default
         type: 'grid',
         url: 'twd67',
         desc: 'TWD67二度分帶格線',
-        checked: true,
+        checked: false,
         opacity: 1.0,
     },
     {
@@ -118,7 +118,7 @@ export default
         type: 'grid',
         url: 'twd97',
         desc: 'TWD97二度分帶格線',
-        checked: false,
+        checked: true,
         opacity: 1.0,
     },
     /*
@@ -357,6 +357,15 @@ export default
         opacity: 1.0,
     },
     //*/
+    {
+        id: 'Sunriver_50K_N_2017',
+        legend: false,
+        type: 'xyz',
+        url: sinica_url('Sunriver_50K_N_2017'),
+        desc: '2017-上河台灣全覽圖(北島)',
+        checked: false,
+        opacity: 1.0,
+    },
     {
         id: 'B25000',
         legend: false,
