@@ -1806,13 +1806,16 @@ details.open-upward[open] summary::marker {
     transition: top 0.3s ease, left 0.3s ease;
     top: 100px;
     left: 100px;
-    color: var(--text-color);
     box-sizing: border-box;
     padding: 1em;
     min-width: 100px;
     min-height: 100px;
+    color: var(--text-color);
+    touch-action: none;
+    /*
     overflow: hidden;
     resize: both;
+    */
 
     /* glass-like panel */
     background-color: rgba(0, 0, 0, 0.15);
@@ -1906,19 +1909,91 @@ details.open-upward[open] summary::marker {
     transform: translateY(-50%);
 }
 
+/* ---------------- Panel Resizer ------------------ */
+
+:root {
+    --resizer-offset: -18px;
+}
+
+.resizer.hidden {
+    display: none;
+}
+
+.resizer {
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    touch-action: none;
+    z-index: 8;
+}
+
+.resizer::after {
+    content: "";
+    width: 12px;
+    height: 12px;
+    box-sizing: border-box;
+    background: rgba(255,255,255,.75);
+    border: 1.5px solid #606060;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgb(0 0 0 / 25%);
+    transition: background 100ms, border-color 100ms,
+                transform 100ms;
+}
+
+.resizer:hover::after {
+    background: #DBEAFE;
+    border-color: #2563EB;
+    transform: scale(1.15);
+}
+
+.resizer.active::after {
+    background: #2563EB;
+    border-color: #fff;
+}
+
+.resizer-nw { top:    var(--resizer-offset); left:  var(--resizer-offset);           cursor: nwse-resize; }
+.resizer-ne { top:    var(--resizer-offset); right: var(--resizer-offset);           cursor: nesw-resize; }
+.resizer-sw { bottom: var(--resizer-offset); left:  var(--resizer-offset);           cursor: nesw-resize; }
+.resizer-se { bottom: var(--resizer-offset); right: var(--resizer-offset);           cursor: nwse-resize; }
+.resizer-n  { top:    var(--resizer-offset); left: 50%; transform: translateX(-50%); cursor:   ns-resize; }
+.resizer-s  { bottom: var(--resizer-offset); left: 50%; transform: translateX(-50%); cursor:   ns-resize; }
+.resizer-w  { left:   var(--resizer-offset); top:  50%; transform: translateY(-50%); cursor:   ew-resize; }
+.resizer-e  { right:  var(--resizer-offset); top:  50%; transform: translateY(-50%); cursor:   ew-resize; }
 
 /*****************************************************/
 
 .tool-areamarker.movable {
     cursor: grab;
 }
-.tool-areamarker.movable.dragging {
+.tool-areamarker.movable.panning {
     cursor: grabbing;
+}
+
+.tool-areamarker:has(.resizer-n.active),
+.tool-areamarker:has(.resizer-s.active) {
+    cursor: ns-resize;
+}
+.tool-areamarker:has(.resizer-e.active),
+.tool-areamarker:has(.resizer-w.active) {
+    cursor: ew-resize;
+}
+.tool-areamarker:has(.resizer-ne.active),
+.tool-areamarker:has(.resizer-sw.active){
+    cursor: nesw-resize;
+}
+.tool-areamarker:has(.resizer-nw.active),
+.tool-areamarker:has(.resizer-se.active){
+    cursor: nwse-resize;
 }
 
 .tool-areamarker.movable .areamarker-anchor {
     visibility: hidden;
 }
+
+/*****************************************************/
 
 .tool-areamarker .areamarker-footer {
     height: 100px;
@@ -2049,9 +2124,13 @@ details.open-upward[open] summary::marker {
     cursor: pointer;
 }
 
-.areamarker-lock:hover{
+.tool-areamarker .areamarker-content button.areamarker-lock {
+    border: none;
+    padding: 0;
+    margin: 0;
     cursor: pointer;
 }
+
 .areamarker-lock.locked .fa-lock-open { display: none; }
 .areamarker-lock:not(.locked) .fa-lock { display: none; }
 .areamarker-lock .fa-lock-open { color: green; }
@@ -2144,4 +2223,4 @@ details.open-upward[open] summary::marker {
     line-height: 1.6;
 }
 
-/*# sourceMappingURL=main.db61cb5b7ebf26d0c971.css.map*/
+/*# sourceMappingURL=main.2a86c449b9ff9b809918.css.map*/
